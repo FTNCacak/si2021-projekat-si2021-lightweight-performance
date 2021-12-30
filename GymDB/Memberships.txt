@@ -1,11 +1,11 @@
-CREATE TABLE [dbo].[Memberships]
-(
-    [CardNumber] INT NOT NULL PRIMARY KEY, 
-    [FirstName] NVARCHAR(20) NOT NULL, 
-    [LastName] NVARCHAR(20) NOT NULL, 
-    [Address] NVARCHAR(50) NULL, 
-    [PhoneNumber] NVARCHAR(10) NOT NULL, 
-    [BirthDate] DATE NOT NULL, 
-    [PaymentDate] DATE NOT NULL, 
-    [Note] NVARCHAR(MAX) NULL
+CREATE TABLE [dbo].[Memberships] (
+    [CardNumber]  INT            NOT NULL,
+    [FirstName]   NVARCHAR (20)  NOT NULL,
+    [LastName]    NVARCHAR (20)  NOT NULL,
+    [Address]     NVARCHAR (50)  NULL,
+    [PhoneNumber] NVARCHAR (10)  NOT NULL,
+    [BirthDate]   DATE           NULL,
+    [PaymentDate] DATE           NOT NULL,
+    [Note]        NVARCHAR (MAX) NULL,
+    PRIMARY KEY CLUSTERED ([CardNumber] ASC)
 )
