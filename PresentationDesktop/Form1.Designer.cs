@@ -1,4 +1,4 @@
-﻿namespace PresentationLayer
+﻿namespace PresentationDesktop
 {
     partial class Form1
     {
