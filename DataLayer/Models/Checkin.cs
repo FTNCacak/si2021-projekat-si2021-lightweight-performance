@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Models
 {
-    public class Training
+    public class Checkin
     {
-        public DateTime Appointment { get; set; }
+        public DateTime CheckinDate { get; set; }
         public int CardNumber { get; set; }
-        public int PersonalNumber { get; set; }
-        public string Type { get; set; }
     }
 }

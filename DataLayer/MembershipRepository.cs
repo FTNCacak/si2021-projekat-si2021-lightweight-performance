@@ -12,7 +12,7 @@ namespace DataLayer
     {
         private string connString = "Data Source=(localdb)\\ProjectsV13;Initial Catalog=GymDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        public List<Membership> GetMemberships()
+        public List<Membership> GetAllMemberships()
         {
             List<Membership> membershipList = new List<Membership>();
 
@@ -83,7 +83,7 @@ namespace DataLayer
             }
         }
 
-        public int DeleteItem(int CardNumber)
+        public int DeleteMembership(int CardNumber)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connString))
             {
