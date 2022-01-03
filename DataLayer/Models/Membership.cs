@@ -16,6 +16,5 @@ namespace DataLayer.Models
         public DateTime BirthDate { get; set; }
         public DateTime PaymentDate { get; set; }
         public string Note { get; set; }
-
     }
 }

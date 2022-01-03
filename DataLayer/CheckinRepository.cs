@@ -10,37 +10,52 @@ namespace DataLayer
 {
     public class CheckinRepository
     {
-        private string connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GymDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //Dalibor
+        private readonly string connString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=GymDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        
         public List<Checkin> GetAllCheckins()
         {
             List<Checkin> checkinList = new List<Checkin>();
+
             using (SqlConnection sqlConnection = new SqlConnection(connString))
             {
                 sqlConnection.Open();
-                SqlCommand command = new SqlCommand();
-                command.Connection = sqlConnection;
-                command.CommandText = "SELECT * FROM Checkins";
+
+                SqlCommand command = new SqlCommand
+                {
+                    Connection = sqlConnection,
+                    CommandText = "SELECT * FROM Checkins"
+                };
 
                 SqlDataReader dataReader = command.ExecuteReader();
+
                 while (dataReader.Read())
                 {
-                    Checkin checkin = new Checkin();
-                    checkin.CheckinDate = dataReader.GetDateTime(0);
-                    checkin.CardNumber = dataReader.GetInt32(1);
+                    Checkin checkin = new Checkin
+                    {
+                        CheckinDate = dataReader.GetDateTime(0),
+                        CardNumber = dataReader.GetInt32(1)
+                    };
+
                     checkinList.Add(checkin);
                 }
             }
             return checkinList;
         }
+
         public int InsertCheckin(Checkin checkin)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connString))
             {
                 sqlConnection.Open();
-                SqlCommand command = new SqlCommand();
-                command.Connection = sqlConnection;
-                command.CommandText = string.Format("INSERT INTO Checkins VALUES ('[0]','[1]')",
-                    checkin.CheckinDate, checkin.CardNumber);
+
+                SqlCommand command = new SqlCommand
+                {
+                    Connection = sqlConnection,
+                    CommandText = string.Format("INSERT INTO Checkins VALUES ('[0]','[1]')",
+                    checkin.CheckinDate, checkin.CardNumber)
+                };
+
                 return command.ExecuteNonQuery();
             }
         }
@@ -56,6 +71,7 @@ namespace DataLayer
                 SqlCommand command = new SqlCommand(sqlQuery, sqlConnection);
                 command.Parameters.AddWithValue("@CheckinDate", checkin.CheckinDate);
                 command.Parameters.AddWithValue("@CardNumber", checkin.CardNumber);
+
                 return command.ExecuteNonQuery();
             }
         }
@@ -66,10 +82,11 @@ namespace DataLayer
             {
                 sqlConnection.Open();
 
-                SqlCommand command = new SqlCommand();
-
-                command.Connection = sqlConnection;
-                command.CommandText = string.Format("DELETE FROM Checkins WHERE CheckinDate = {0}, CardNumber = {1}", CheckinDate, CardNumber);
+                SqlCommand command = new SqlCommand
+                {
+                    Connection = sqlConnection,
+                    CommandText = string.Format("DELETE FROM Checkins WHERE CheckinDate = {0}, CardNumber = {1}", CheckinDate, CardNumber)
+                };
 
                 return command.ExecuteNonQuery();
             }

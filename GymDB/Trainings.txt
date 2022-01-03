@@ -1,4 +1,4 @@
-CREATE TABLE [dbo].[Training]
+CREATE TABLE [dbo].[Trainings]
 (
 	[Appointment] DATETIME NOT NULL PRIMARY KEY,
 	CardNumber int FOREIGN KEY REFERENCES Memberships(CardNumber) NOT NULL,
