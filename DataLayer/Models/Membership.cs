@@ -8,7 +8,7 @@ namespace DataLayer.Models
 {
     public class Membership
     {
-        public int CardNumber { get; set; }
+        public int MembershipID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
@@ -16,6 +16,5 @@ namespace DataLayer.Models
         public DateTime BirthDate { get; set; }
         public DateTime PaymentDate { get; set; }
         public string Note { get; set; }
-
     }
 }

@@ -1,7 +1,0 @@
-CREATE TABLE [dbo].[Training]
-(
-	[Appointment] DATETIME NOT NULL PRIMARY KEY,
-	CardNumber int FOREIGN KEY REFERENCES Memberships(CardNumber) NOT NULL,
-	PersonalNumber int FOREIGN KEY REFERENCES Employees(PersonalNumber) NOT NULL, 
-    [Type] NVARCHAR(50) NOT NULL,
-)

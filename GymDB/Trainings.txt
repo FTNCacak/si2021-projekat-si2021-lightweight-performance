@@ -1,0 +1,9 @@
+CREATE TABLE [dbo].[Trainings] (
+    [Appointment]  DATETIME      NOT NULL,
+    [MembershipID] INT           NULL,
+    [EmployeeID]   INT           NULL,
+    [Type]         NVARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Appointment] ASC),
+    FOREIGN KEY ([MembershipID]) REFERENCES [dbo].[Memberships] ([MembershipID]),
+    FOREIGN KEY ([EmployeeID]) REFERENCES [dbo].[Employees] ([EmployeeID])
+);
