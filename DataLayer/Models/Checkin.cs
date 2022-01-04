@@ -9,6 +9,6 @@ namespace DataLayer.Models
     public class Checkin
     {
         public DateTime CheckinDate { get; set; }
-        public int CardNumber { get; set; }
+        public int MembershipID { get; set; }
     }
 }

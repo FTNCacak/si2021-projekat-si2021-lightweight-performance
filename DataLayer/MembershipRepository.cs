@@ -33,7 +33,7 @@ namespace DataLayer
                 {
                     Membership membership = new Membership
                     {
-                        CardNumber = dataReader.GetInt32(0),
+                        MembershipID = dataReader.GetInt32(0),
                         FirstName = dataReader.GetString(1),
                         LastName = dataReader.GetString(2),
                         Address = dataReader.GetString(3),
@@ -59,14 +59,15 @@ namespace DataLayer
                 SqlCommand command = new SqlCommand
                 {
                     Connection = sqlConnection,
-                    CommandText = string.Format("INSERT INTO Memberships VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}',)", 
-                        membership.CardNumber, membership.FirstName, membership.LastName, membership.Address, membership.PhoneNumber, membership.BirthDate, membership.PaymentDate, membership.Note)
+                    CommandText = string.Format("INSERT INTO Memberships VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", 
+                        membership.FirstName, membership.LastName, membership.Address, membership.PhoneNumber, membership.BirthDate, membership.PaymentDate, membership.Note)
                 };
 
                 return command.ExecuteNonQuery();
             }
         }
 
+        //izmeniti metodu ako se bude koristila
         public int UpdateMembership(Membership membership)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connString))
@@ -76,7 +77,7 @@ namespace DataLayer
                 string sqlQuery = "UPDATE Memberships SET FirstName=@FirstName, LastName=@LastName, Address=@Address, PhoneNumber = @PhoneNumber, BirthDate = @BirthDate,PaymentDate = @PaymentDate,Note = @Note WHERE CardNumber=@CardNumber";
 
                 SqlCommand command = new SqlCommand(sqlQuery, sqlConnection);
-                command.Parameters.AddWithValue("@CardNumber", membership.CardNumber);
+                command.Parameters.AddWithValue("@CardNumber", membership.MembershipID);
                 command.Parameters.AddWithValue("@FirstName", membership.FirstName);
                 command.Parameters.AddWithValue("@LastName", membership.LastName);
                 command.Parameters.AddWithValue("@Address", membership.Address);
@@ -89,7 +90,7 @@ namespace DataLayer
             }
         }
 
-        public int DeleteMembership(int CardNumber)
+        public int DeleteMembership(int MembershipID)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connString))
             {
@@ -98,7 +99,7 @@ namespace DataLayer
                 SqlCommand command = new SqlCommand
                 {
                     Connection = sqlConnection,
-                    CommandText = string.Format("DELETE FROM Memberships WHERE CardNumber= {0}", CardNumber)
+                    CommandText = string.Format("DELETE FROM Memberships WHERE MembershipID = {0}", MembershipID)
                 };
 
                 return command.ExecuteNonQuery();

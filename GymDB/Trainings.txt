@@ -1,7 +1,9 @@
-CREATE TABLE [dbo].[Trainings]
-(
-	[Appointment] DATETIME NOT NULL PRIMARY KEY,
-	CardNumber int FOREIGN KEY REFERENCES Memberships(CardNumber) NOT NULL,
-	PersonalNumber int FOREIGN KEY REFERENCES Employees(PersonalNumber) NOT NULL, 
-    [Type] NVARCHAR(50) NOT NULL,
-)
+CREATE TABLE [dbo].[Trainings] (
+    [Appointment]  DATETIME      NOT NULL,
+    [MembershipID] INT           NULL,
+    [EmployeeID]   INT           NULL,
+    [Type]         NVARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Appointment] ASC),
+    FOREIGN KEY ([MembershipID]) REFERENCES [dbo].[Memberships] ([MembershipID]),
+    FOREIGN KEY ([EmployeeID]) REFERENCES [dbo].[Employees] ([EmployeeID])
+);

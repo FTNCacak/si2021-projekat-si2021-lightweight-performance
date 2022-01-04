@@ -32,14 +32,15 @@ namespace DataLayer
                 {
                     Employee employee = new Employee
                     {
-                        PersonalNumber = dataReader.GetInt32(0),
-                        FirstName = dataReader.GetString(1),
-                        LastName = dataReader.GetString(2),
-                        EmploymentDate = dataReader.GetDateTime(3),
-                        ContractExpiration = dataReader.GetDateTime(4),
-                        Address = dataReader.GetString(5),
-                        PhoneNumber = dataReader.GetString(6),
-                        BirthDate = dataReader.GetDateTime(7)
+                        EmployeeID = dataReader.GetInt32(0),
+                        PersonalNumber = dataReader.GetString(1),
+                        FirstName = dataReader.GetString(2),
+                        LastName = dataReader.GetString(3),
+                        EmploymentDate = dataReader.GetDateTime(4),
+                        ContractExpiration = dataReader.GetDateTime(5),
+                        Address = dataReader.GetString(6),
+                        PhoneNumber = dataReader.GetString(7),
+                        BirthDate = dataReader.GetDateTime(8)
                     };
 
                     employeeList.Add(employee);
@@ -58,13 +59,14 @@ namespace DataLayer
                 {
                     Connection = sqlConnection,
                     CommandText = string.Format("INSERT INTO Employees VALUES ('[0]','[1]','[2]','[3]','[4]','[5]','[6]','[7]')",
-                    employee.PersonalNumber, employee.FirstName, employee.LastName, employee.EmploymentDate, employee.ContractExpiration, employee.Address, employee.PhoneNumber, employee.BirthDate)
+                        employee.PersonalNumber, employee.FirstName, employee.LastName, employee.EmploymentDate, employee.ContractExpiration, employee.Address, employee.PhoneNumber, employee.BirthDate)
                 };
 
                 return command.ExecuteNonQuery();   
             }
         }
 
+        //izmeniti metodu ako se bude koristila
         public int UpdateEmployee(Employee employee)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connString))
@@ -82,11 +84,12 @@ namespace DataLayer
                 command.Parameters.AddWithValue("@Address", employee.Address);
                 command.Parameters.AddWithValue("@PhoneNumber", employee.PhoneNumber);
                 command.Parameters.AddWithValue("@BirthDate", employee.BirthDate);
+
                 return command.ExecuteNonQuery();
             }
         }
 
-        public int DeleteEmployee(int PersonalNumber)
+        public int DeleteEmployee(int EmployeeID)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connString))
             {
@@ -95,7 +98,7 @@ namespace DataLayer
                 SqlCommand command = new SqlCommand
                 {
                     Connection = sqlConnection,
-                    CommandText = string.Format("DELETE FROM Employees WHERE PersonalNumber= {0}", PersonalNumber)
+                    CommandText = string.Format("DELETE FROM Employees WHERE EmployeeID = {0}", EmployeeID)
                 };
 
                 return command.ExecuteNonQuery();

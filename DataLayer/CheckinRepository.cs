@@ -34,7 +34,7 @@ namespace DataLayer
                     Checkin checkin = new Checkin
                     {
                         CheckinDate = dataReader.GetDateTime(0),
-                        CardNumber = dataReader.GetInt32(1)
+                        MembershipID = dataReader.GetInt32(1)
                     };
 
                     checkinList.Add(checkin);
@@ -53,30 +53,31 @@ namespace DataLayer
                 {
                     Connection = sqlConnection,
                     CommandText = string.Format("INSERT INTO Checkins VALUES ('[0]','[1]')",
-                    checkin.CheckinDate, checkin.CardNumber)
+                    checkin.CheckinDate, checkin.MembershipID)
                 };
 
                 return command.ExecuteNonQuery();
             }
         }
 
+        //izmeniti metodu ako se bude koristila
         public int UpdateCheckin(Checkin checkin)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connString))
             {
                 sqlConnection.Open();
 
-                string sqlQuery = "UPDATE Checkins SET CheckinDate = @CheckinDate, CardNumber = @CardNumber";
+                string sqlQuery = "UPDATE Checkins SET CheckinDate = @CheckinDate, MembershipID = @MembershipID";
 
                 SqlCommand command = new SqlCommand(sqlQuery, sqlConnection);
                 command.Parameters.AddWithValue("@CheckinDate", checkin.CheckinDate);
-                command.Parameters.AddWithValue("@CardNumber", checkin.CardNumber);
+                command.Parameters.AddWithValue("@MembershipID", checkin.MembershipID);
 
                 return command.ExecuteNonQuery();
             }
         }
 
-        public int DeleteCheckin(DateTime CheckinDate, int CardNumber)
+        public int DeleteCheckin(DateTime CheckinDate, int MembershipID)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connString))
             {
@@ -85,7 +86,7 @@ namespace DataLayer
                 SqlCommand command = new SqlCommand
                 {
                     Connection = sqlConnection,
-                    CommandText = string.Format("DELETE FROM Checkins WHERE CheckinDate = {0}, CardNumber = {1}", CheckinDate, CardNumber)
+                    CommandText = string.Format("DELETE FROM Checkins WHERE CheckinDate = {0}, MembershipID = {1}", CheckinDate, MembershipID)
                 };
 
                 return command.ExecuteNonQuery();

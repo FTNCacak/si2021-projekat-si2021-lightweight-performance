@@ -8,7 +8,8 @@ namespace DataLayer.Models
 {
     public class Employee
     {
-        public int PersonalNumber { get; set; }
+        public int EmployeeID { get; set; }
+        public string PersonalNumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime EmploymentDate { get; set; }

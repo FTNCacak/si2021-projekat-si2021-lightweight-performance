@@ -23,7 +23,7 @@ namespace DataLayer
                 SqlCommand command = new SqlCommand
                 {
                     Connection = sqlConnection,
-                    CommandText = "SELECT * FROM Training"
+                    CommandText = "SELECT * FROM Trainings"
                 };
 
                 SqlDataReader dataReader = command.ExecuteReader();
@@ -33,8 +33,8 @@ namespace DataLayer
                     Training training = new Training
                     {
                         Appointment = dataReader.GetDateTime(0),
-                        CardNumber = dataReader.GetInt32(1),
-                        PersonalNumber = dataReader.GetInt32(2),
+                        MembershipID = dataReader.GetInt32(1),
+                        EmployeeID = dataReader.GetInt32(2),
                         Type = dataReader.GetString(3)
                     };
                     trainingList.Add(training);
@@ -52,33 +52,33 @@ namespace DataLayer
                 SqlCommand command = new SqlCommand
                 {
                     Connection = sqlConnection,
-                    CommandText = string.Format("INSERT INTO Training VALUES ('[0]','[1]','[2]','[3]')", 
-                        training.Appointment, training.CardNumber, training.PersonalNumber, training.Type)
+                    CommandText = string.Format("INSERT INTO Trainings VALUES ('[0]','[1]','[2]','[3]')", training.Appointment, training.MembershipID, training.EmployeeID, training.Type)
                 };
 
                 return command.ExecuteNonQuery();
             }
         }
 
+        //izmeniti metodu ako se bude koristila
         public int UpdateTraining(Training training)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connString))
             {
                 sqlConnection.Open();
 
-                string sqlQuery = "UPDATE Training SET Appointment = @Appointment, CardNumber = @CardNumber, PersonalNumber = @PersonalNmber, Type = @Type";
+                string sqlQuery = "UPDATE Trainings SET Appointment = @Appointment, CardNumber = @CardNumber, PersonalNumber = @PersonalNmber, Type = @Type";
 
                 SqlCommand command = new SqlCommand(sqlQuery, sqlConnection);
                 command.Parameters.AddWithValue("@PersonalNumber", training.Appointment);
-                command.Parameters.AddWithValue("@FirstName", training.CardNumber);
-                command.Parameters.AddWithValue("@LastName", training.PersonalNumber);
+                command.Parameters.AddWithValue("@FirstName", training.MembershipID);
+                command.Parameters.AddWithValue("@LastName", training.EmployeeID);
                 command.Parameters.AddWithValue("@EmploymentDate", training.Type);
 
                 return command.ExecuteNonQuery();
             }
         }
 
-        public int DeleteTraining(DateTime Appointment, int CardNumber, int PersonalNumber)
+        public int DeleteTraining(DateTime Appointment, int MembershipID, int EmployeeID)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connString))
             {
@@ -87,7 +87,7 @@ namespace DataLayer
                 SqlCommand command = new SqlCommand
                 {
                     Connection = sqlConnection,
-                    CommandText = string.Format("DELETE FROM Training WHERE Appointment= {0}, CardNumber = {1}, PersonalNumber = {2}", Appointment, CardNumber, PersonalNumber)
+                    CommandText = string.Format("DELETE FROM Trainings WHERE Appointment = {0}, MembershipID = {1}, EmployeeID = {2}", Appointment, MembershipID, EmployeeID)
                 };
 
                 return command.ExecuteNonQuery();

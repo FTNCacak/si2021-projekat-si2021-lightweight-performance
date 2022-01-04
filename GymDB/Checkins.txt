@@ -1,5 +1,6 @@
-CREATE TABLE [dbo].[Checkins]
-(
-	[CheckinDate] DATETIME NOT NULL PRIMARY KEY, 
-    CardNumber int FOREIGN KEY REFERENCES Memberships(CardNumber) NOT NULL
-)
+CREATE TABLE [dbo].[Checkins] (
+    [CheckinDate]  DATETIME NOT NULL,
+    [MembershipID] INT      NULL,
+    PRIMARY KEY CLUSTERED ([CheckinDate] ASC),
+    FOREIGN KEY ([MembershipID]) REFERENCES [dbo].[Memberships] ([MembershipID])
+);
