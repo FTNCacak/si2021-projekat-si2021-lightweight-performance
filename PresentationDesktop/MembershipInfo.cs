@@ -1,4 +1,8 @@
-﻿using System;
+﻿using DataLayer;
+using BusinessLayer;
+using Shared.Interfaces;
+using Shared.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +19,11 @@ namespace PresentationDesktop
         public MembershipInfo()
         {
             InitializeComponent();
+        }
+
+        private void MembershipInfo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

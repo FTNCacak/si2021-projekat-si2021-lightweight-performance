@@ -1,23 +1,21 @@
-﻿using System;
+﻿using Shared.Interfaces;
+using Shared.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataLayer.Models;
-using System.Data.SqlClient;
 
 namespace DataLayer
 {
-    public class EmployeeRepository
+    public class EmployeeRepository : IEmployeeRepository
     {
-        //Dalibor
-        private readonly string connString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=GymDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        
         public List<Employee> GetAllEmployees()
         {
             List<Employee> employeeList = new List<Employee>();
 
-            using (SqlConnection sqlConnection = new SqlConnection(connString))
+            using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
             {
                 sqlConnection.Open();
                 SqlCommand command = new SqlCommand
@@ -51,7 +49,7 @@ namespace DataLayer
 
         public int InsertEmployee(Employee employee)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(connString))
+            using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
             {
                 sqlConnection.Open();
 
@@ -69,7 +67,7 @@ namespace DataLayer
         //izmeniti metodu ako se bude koristila
         public int UpdateEmployee(Employee employee)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(connString))
+            using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
             {
                 sqlConnection.Open();
 
@@ -91,7 +89,7 @@ namespace DataLayer
 
         public int DeleteEmployee(int EmployeeID)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(connString))
+            using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
             {
                 sqlConnection.Open();
 

@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0C98B985-70AA-48AC-A20C-DACBFAC2B951}</ProjectGuid>
+    <ProjectGuid>{C3FF1795-BAAC-4BD8-9B51-973351D63603}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataLayer</RootNamespace>
-    <AssemblyName>DataLayer</AssemblyName>
+    <RootNamespace>Shared</RootNamespace>
+    <AssemblyName>Shared</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,17 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckinRepository.cs" />
-    <Compile Include="TrainingRepository.cs" />
-    <Compile Include="EmployeeRepository.cs" />
-    <Compile Include="MembershipRepository.cs" />
+    <Compile Include="Interfaces\ICheckinBusiness.cs" />
+    <Compile Include="Interfaces\IEmployeeBusiness.cs" />
+    <Compile Include="Interfaces\IMembershipBusiness.cs" />
+    <Compile Include="Interfaces\IMembershipRepository.cs" />
+    <Compile Include="Interfaces\IEmployeeRepository.cs" />
+    <Compile Include="Interfaces\ICheckinRepository.cs" />
+    <Compile Include="Interfaces\ITrainingBusiness.cs" />
+    <Compile Include="Interfaces\ITrainingRepository.cs" />
+    <Compile Include="Models\Checkin.cs" />
+    <Compile Include="Models\Training.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Membership.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Shared\Shared.csproj">
-      <Project>{c3ff1795-baac-4bd8-9b51-973351d63603}</Project>
-      <Name>Shared</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

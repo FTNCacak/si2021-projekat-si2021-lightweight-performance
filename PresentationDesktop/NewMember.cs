@@ -1,4 +1,8 @@
-﻿using System;
+﻿using DataLayer;
+using BusinessLayer;
+using Shared.Interfaces;
+using Shared.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,6 +27,11 @@ namespace PresentationDesktop
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }

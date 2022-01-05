@@ -1,23 +1,21 @@
-﻿using System;
+﻿using Shared.Interfaces;
+using Shared.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataLayer.Models;
-using System.Data.SqlClient;
 
 namespace DataLayer
 {
-    public class CheckinRepository
+    public class CheckinRepository : ICheckinRepository
     {
-        //Dalibor
-        private readonly string connString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=GymDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        
         public List<Checkin> GetAllCheckins()
         {
             List<Checkin> checkinList = new List<Checkin>();
 
-            using (SqlConnection sqlConnection = new SqlConnection(connString))
+            using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
             {
                 sqlConnection.Open();
 
@@ -45,7 +43,7 @@ namespace DataLayer
 
         public int InsertCheckin(Checkin checkin)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(connString))
+            using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
             {
                 sqlConnection.Open();
 
@@ -63,7 +61,7 @@ namespace DataLayer
         //izmeniti metodu ako se bude koristila
         public int UpdateCheckin(Checkin checkin)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(connString))
+            using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
             {
                 sqlConnection.Open();
 
@@ -79,7 +77,7 @@ namespace DataLayer
 
         public int DeleteCheckin(DateTime CheckinDate, int MembershipID)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(connString))
+            using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
             {
                 sqlConnection.Open();
 

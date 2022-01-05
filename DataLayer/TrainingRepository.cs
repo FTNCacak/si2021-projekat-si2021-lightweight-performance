@@ -1,22 +1,21 @@
-﻿using System;
+﻿using Shared.Interfaces;
+using Shared.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataLayer.Models;
-using System.Data.SqlClient;
 
 namespace DataLayer
 {
-    public class TrainingRepository
+    public class TrainingRepository : ITrainingRepository
     {
-        private readonly string connString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=GymDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        
         public List<Training> GetAllTrainings()
         {
             List<Training> trainingList = new List<Training>();
 
-            using (SqlConnection sqlConnection = new SqlConnection(connString))
+            using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
             {
                 sqlConnection.Open();
 
@@ -45,7 +44,7 @@ namespace DataLayer
 
         public int InsertTraining(Training training)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(connString))
+            using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
             {
                 sqlConnection.Open();
 
@@ -62,7 +61,7 @@ namespace DataLayer
         //izmeniti metodu ako se bude koristila
         public int UpdateTraining(Training training)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(connString))
+            using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
             {
                 sqlConnection.Open();
 
@@ -80,7 +79,7 @@ namespace DataLayer
 
         public int DeleteTraining(DateTime Appointment, int MembershipID, int EmployeeID)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(connString))
+            using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
             {
                 sqlConnection.Open();
 

@@ -1,4 +1,8 @@
-﻿using System;
+﻿using BusinessLayer;
+using DataLayer;
+using Microsoft.Extensions.DependencyInjection;
+using Shared.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PresentationDesktop
 {
-    internal static class Program
+    static class Program
     {
         /// <summary>
         /// The main entry point for the application.
@@ -16,7 +20,28 @@ namespace PresentationDesktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Terminal());
+
+            var services = new ServiceCollection();
+            ConfigureServices(services);
+
+            using (ServiceProvider serviceProvider = services.BuildServiceProvider())
+            {
+                var terminal = serviceProvider.GetRequiredService<Terminal>(); //zameniti sa Login formom na kraju
+                Application.Run(terminal);
+            }
+        }
+
+        private static void ConfigureServices(ServiceCollection services)
+        {
+            services.AddScoped<ICheckinBusiness, CheckinBusiness>();
+            services.AddScoped<ICheckinRepository, CheckinRepository>();
+            services.AddScoped<IEmployeeBusiness, EmployeeBusiness>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IMembershipBusiness, MembershipBusiness>();
+            services.AddScoped<IMembershipRepository, MembershipRepository>();
+            services.AddScoped<ITrainingBusiness, TrainingBusiness>();
+            services.AddScoped<ITrainingRepository, TrainingRepository>();
+            services.AddScoped<Terminal>(); //zameniti sa Login formom na kraju
         }
     }
 }
