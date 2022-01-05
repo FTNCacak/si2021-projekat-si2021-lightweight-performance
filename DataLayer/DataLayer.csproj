@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckinRepository.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="TrainingRepository.cs" />
     <Compile Include="EmployeeRepository.cs" />
     <Compile Include="MembershipRepository.cs" />
