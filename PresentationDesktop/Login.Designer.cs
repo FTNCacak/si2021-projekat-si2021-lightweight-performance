@@ -33,7 +33,7 @@
             this.textBoxUser = new System.Windows.Forms.TextBox();
             this.textBoxPass = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
             this.pictureBoxLogin = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogin)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +48,6 @@
             this.label1.Size = new System.Drawing.Size(137, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "USERNAME:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -72,6 +71,7 @@
             // 
             this.textBoxPass.Location = new System.Drawing.Point(259, 58);
             this.textBoxPass.Name = "textBoxPass";
+            this.textBoxPass.PasswordChar = '*';
             this.textBoxPass.Size = new System.Drawing.Size(132, 20);
             this.textBoxPass.TabIndex = 4;
             // 
@@ -84,17 +84,17 @@
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // label3
+            // lblError
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(148, 88);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(219, 20);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "INCORRECT LOGIN INFO";
+            this.lblError.AutoSize = true;
+            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(148, 88);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 20);
+            this.lblError.TabIndex = 6;
             // 
             // pictureBoxLogin
             // 
@@ -112,7 +112,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(66)))), ((int)(((byte)(97)))));
             this.ClientSize = new System.Drawing.Size(514, 114);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.textBoxPass);
             this.Controls.Add(this.textBoxUser);
@@ -123,7 +123,6 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -138,6 +137,6 @@
         private System.Windows.Forms.TextBox textBoxUser;
         private System.Windows.Forms.TextBox textBoxPass;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblError;
     }
 }

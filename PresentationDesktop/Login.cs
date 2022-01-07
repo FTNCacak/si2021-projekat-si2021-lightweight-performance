@@ -21,14 +21,23 @@ namespace PresentationDesktop
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
+            String userName = textBoxUser.Text;
+            String password = textBoxPass.Text;
+            if(userName == "admin" && password == "12345")
+            {
+                this.Hide();
+                Terminal terminal = new Terminal();
+                terminal.ShowDialog();
+            }
+            else
+            {
+                lblError.Text = "WRONG LOGIN INFO";
+                textBoxUser.Text = String.Empty;
+                textBoxPass.Text = String.Empty;
+            }
         }
     }
 }

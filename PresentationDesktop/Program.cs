@@ -26,7 +26,7 @@ namespace PresentationDesktop
 
             using (ServiceProvider serviceProvider = services.BuildServiceProvider())
             {
-                var terminal = serviceProvider.GetRequiredService<Terminal>(); //zameniti sa Login formom na kraju
+                var terminal = serviceProvider.GetRequiredService<Login>(); //zameniti sa Login formom na kraju
                 Application.Run(terminal);
             }
         }
@@ -41,7 +41,7 @@ namespace PresentationDesktop
             services.AddScoped<IMembershipRepository, MembershipRepository>();
             services.AddScoped<ITrainingBusiness, TrainingBusiness>();
             services.AddScoped<ITrainingRepository, TrainingRepository>();
-            services.AddScoped<Terminal>(); //zameniti sa Login formom na kraju
+            services.AddScoped<Login>(); //zameniti sa Login formom na kraju
         }
     }
 }

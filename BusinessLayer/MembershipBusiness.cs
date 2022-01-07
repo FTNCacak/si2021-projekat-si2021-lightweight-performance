@@ -17,5 +17,10 @@ namespace BusinessLayer
         {
             this.membershipRepository = membershipRepository;
         }
+
+        public bool InsertMembership (Membership membership)
+        {
+            return membershipRepository.InsertMembership(membership) != 0;
+        }
     }
 }

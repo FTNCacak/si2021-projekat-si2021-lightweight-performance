@@ -21,28 +21,16 @@ namespace PresentationDesktop
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnNewMember_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            NewMember newMember = new NewMember();
+            newMember.ShowDialog();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnCheckIn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void picRefresh_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
+            txtUserID.Text = String.Empty;
 
         }
 
@@ -51,9 +39,30 @@ namespace PresentationDesktop
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnPersonalTraining_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            PersonalTraining personalTraining = new PersonalTraining();
+            personalTraining.ShowDialog();
+        }
 
+        private void btnMembership_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Membership membership = new Membership();
+            membership.ShowDialog();
+        }
+
+        private void btnMemberInfo_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MembershipInfo membershipInfo = new MembershipInfo();
+            membershipInfo.ShowDialog();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -30,24 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Terminal));
             this.Panel2Dolasci = new System.Windows.Forms.Panel();
-            this.btn1New = new System.Windows.Forms.Button();
-            this.btn2Clanarina = new System.Windows.Forms.Button();
-            this.btn3Private = new System.Windows.Forms.Button();
-            this.btn4Info = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnNewMember = new System.Windows.Forms.Button();
+            this.btnMembership = new System.Windows.Forms.Button();
+            this.btnPersonalTraining = new System.Windows.Forms.Button();
+            this.btnMemberInfo = new System.Windows.Forms.Button();
             this.Panel1Header = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn5Prijava = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtUserID = new System.Windows.Forms.TextBox();
+            this.btnCheckIn = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.Panel2Dolasci.SuspendLayout();
-            this.Panel1Header.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.Panel1Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel2Dolasci
@@ -59,90 +59,6 @@
             this.Panel2Dolasci.Size = new System.Drawing.Size(802, 562);
             this.Panel2Dolasci.TabIndex = 1;
             // 
-            // btn1New
-            // 
-            this.btn1New.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btn1New.Location = new System.Drawing.Point(22, 12);
-            this.btn1New.Name = "btn1New";
-            this.btn1New.Size = new System.Drawing.Size(222, 53);
-            this.btn1New.TabIndex = 0;
-            this.btn1New.Text = "&1 New Member";
-            this.btn1New.UseVisualStyleBackColor = true;
-            this.btn1New.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btn2Clanarina
-            // 
-            this.btn2Clanarina.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btn2Clanarina.Location = new System.Drawing.Point(22, 71);
-            this.btn2Clanarina.Name = "btn2Clanarina";
-            this.btn2Clanarina.Size = new System.Drawing.Size(222, 53);
-            this.btn2Clanarina.TabIndex = 1;
-            this.btn2Clanarina.Text = "Membership";
-            this.btn2Clanarina.UseVisualStyleBackColor = true;
-            // 
-            // btn3Private
-            // 
-            this.btn3Private.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btn3Private.Location = new System.Drawing.Point(250, 12);
-            this.btn3Private.Name = "btn3Private";
-            this.btn3Private.Size = new System.Drawing.Size(250, 53);
-            this.btn3Private.TabIndex = 2;
-            this.btn3Private.Text = "Personal training";
-            this.btn3Private.UseVisualStyleBackColor = true;
-            // 
-            // btn4Info
-            // 
-            this.btn4Info.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btn4Info.Location = new System.Drawing.Point(250, 71);
-            this.btn4Info.Name = "btn4Info";
-            this.btn4Info.Size = new System.Drawing.Size(250, 53);
-            this.btn4Info.TabIndex = 3;
-            this.btn4Info.Text = "Member Info";
-            this.btn4Info.UseVisualStyleBackColor = true;
-            // 
-            // Panel1Header
-            // 
-            this.Panel1Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(102)))), ((int)(((byte)(156)))));
-            this.Panel1Header.Controls.Add(this.pictureBox1);
-            this.Panel1Header.Controls.Add(this.btn4Info);
-            this.Panel1Header.Controls.Add(this.btn3Private);
-            this.Panel1Header.Controls.Add(this.btn2Clanarina);
-            this.Panel1Header.Controls.Add(this.btn1New);
-            this.Panel1Header.Location = new System.Drawing.Point(177, 0);
-            this.Panel1Header.Name = "Panel1Header";
-            this.Panel1Header.Size = new System.Drawing.Size(622, 143);
-            this.Panel1Header.TabIndex = 0;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(513, 30);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(10);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(99, 20);
-            this.dateTimePicker1.TabIndex = 8;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(112)))), ((int)(((byte)(166)))));
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.btn5Prijava);
-            this.panel1.Location = new System.Drawing.Point(177, 149);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(667, 83);
-            this.panel1.TabIndex = 2;
-            // 
-            // btn5Prijava
-            // 
-            this.btn5Prijava.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn5Prijava.Location = new System.Drawing.Point(22, 36);
-            this.btn5Prijava.Name = "btn5Prijava";
-            this.btn5Prijava.Size = new System.Drawing.Size(478, 31);
-            this.btn5Prijava.TabIndex = 7;
-            this.btn5Prijava.Text = "Check-In";
-            this.btn5Prijava.UseVisualStyleBackColor = true;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -151,17 +67,62 @@
             this.dataGridView1.Size = new System.Drawing.Size(776, 537);
             this.dataGridView1.TabIndex = 0;
             // 
-            // pictureBox2
+            // btnNewMember
             // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.pictureBox2.Image = global::PresentationDesktop.Properties.Resources.LP_Header;
-            this.pictureBox2.InitialImage = global::PresentationDesktop.Properties.Resources.LP_Header;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 10);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(144, 212);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
+            this.btnNewMember.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnNewMember.Location = new System.Drawing.Point(22, 12);
+            this.btnNewMember.Name = "btnNewMember";
+            this.btnNewMember.Size = new System.Drawing.Size(222, 53);
+            this.btnNewMember.TabIndex = 0;
+            this.btnNewMember.Text = "New Member";
+            this.btnNewMember.UseVisualStyleBackColor = true;
+            this.btnNewMember.Click += new System.EventHandler(this.btnNewMember_Click);
+            // 
+            // btnMembership
+            // 
+            this.btnMembership.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnMembership.Location = new System.Drawing.Point(22, 71);
+            this.btnMembership.Name = "btnMembership";
+            this.btnMembership.Size = new System.Drawing.Size(222, 53);
+            this.btnMembership.TabIndex = 1;
+            this.btnMembership.Text = "Membership";
+            this.btnMembership.UseVisualStyleBackColor = true;
+            this.btnMembership.Click += new System.EventHandler(this.btnMembership_Click);
+            // 
+            // btnPersonalTraining
+            // 
+            this.btnPersonalTraining.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnPersonalTraining.Location = new System.Drawing.Point(250, 12);
+            this.btnPersonalTraining.Name = "btnPersonalTraining";
+            this.btnPersonalTraining.Size = new System.Drawing.Size(250, 53);
+            this.btnPersonalTraining.TabIndex = 2;
+            this.btnPersonalTraining.Text = "Personal training";
+            this.btnPersonalTraining.UseVisualStyleBackColor = true;
+            this.btnPersonalTraining.Click += new System.EventHandler(this.btnPersonalTraining_Click);
+            // 
+            // btnMemberInfo
+            // 
+            this.btnMemberInfo.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnMemberInfo.Location = new System.Drawing.Point(250, 71);
+            this.btnMemberInfo.Name = "btnMemberInfo";
+            this.btnMemberInfo.Size = new System.Drawing.Size(250, 53);
+            this.btnMemberInfo.TabIndex = 3;
+            this.btnMemberInfo.Text = "Member Info";
+            this.btnMemberInfo.UseVisualStyleBackColor = true;
+            this.btnMemberInfo.Click += new System.EventHandler(this.btnMemberInfo_Click);
+            // 
+            // Panel1Header
+            // 
+            this.Panel1Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(102)))), ((int)(((byte)(156)))));
+            this.Panel1Header.Controls.Add(this.pictureBox1);
+            this.Panel1Header.Controls.Add(this.btnMemberInfo);
+            this.Panel1Header.Controls.Add(this.btnPersonalTraining);
+            this.Panel1Header.Controls.Add(this.btnMembership);
+            this.Panel1Header.Controls.Add(this.btnNewMember);
+            this.Panel1Header.Location = new System.Drawing.Point(177, 0);
+            this.Panel1Header.Name = "Panel1Header";
+            this.Panel1Header.Size = new System.Drawing.Size(622, 143);
+            this.Panel1Header.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -176,12 +137,54 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // textBox1
+            // dateTimePicker1
             // 
-            this.textBox1.Location = new System.Drawing.Point(21, 10);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(478, 20);
-            this.textBox1.TabIndex = 9;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker1.Location = new System.Drawing.Point(513, 30);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(10);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(99, 20);
+            this.dateTimePicker1.TabIndex = 8;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(112)))), ((int)(((byte)(166)))));
+            this.panel1.Controls.Add(this.txtUserID);
+            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.btnCheckIn);
+            this.panel1.Location = new System.Drawing.Point(177, 149);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(667, 83);
+            this.panel1.TabIndex = 2;
+            // 
+            // txtUserID
+            // 
+            this.txtUserID.Location = new System.Drawing.Point(21, 10);
+            this.txtUserID.Name = "txtUserID";
+            this.txtUserID.Size = new System.Drawing.Size(478, 20);
+            this.txtUserID.TabIndex = 9;
+            // 
+            // btnCheckIn
+            // 
+            this.btnCheckIn.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckIn.Location = new System.Drawing.Point(22, 36);
+            this.btnCheckIn.Name = "btnCheckIn";
+            this.btnCheckIn.Size = new System.Drawing.Size(478, 31);
+            this.btnCheckIn.TabIndex = 7;
+            this.btnCheckIn.Text = "Check-In";
+            this.btnCheckIn.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.pictureBox2.Image = global::PresentationDesktop.Properties.Resources.LP_Header;
+            this.pictureBox2.InitialImage = global::PresentationDesktop.Properties.Resources.LP_Header;
+            this.pictureBox2.Location = new System.Drawing.Point(12, 10);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(144, 212);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
             // 
             // Terminal
             // 
@@ -200,12 +203,12 @@
             this.Text = "Lightweight Terminal";
             this.Load += new System.EventHandler(this.Terminal_Load);
             this.Panel2Dolasci.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.Panel1Header.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -214,17 +217,17 @@
 
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel Panel2Dolasci;
-        private System.Windows.Forms.Button btn1New;
-        private System.Windows.Forms.Button btn2Clanarina;
-        private System.Windows.Forms.Button btn3Private;
-        private System.Windows.Forms.Button btn4Info;
+        private System.Windows.Forms.Button btnNewMember;
+        private System.Windows.Forms.Button btnMembership;
+        private System.Windows.Forms.Button btnPersonalTraining;
+        private System.Windows.Forms.Button btnMemberInfo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel Panel1Header;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btn5Prijava;
+        private System.Windows.Forms.Button btnCheckIn;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtUserID;
     }
 }
 

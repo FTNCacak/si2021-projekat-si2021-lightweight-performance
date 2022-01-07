@@ -14,26 +14,35 @@ using System.Windows.Forms;
 
 namespace PresentationDesktop
 {
-    public partial class Form1 : Form
+    public partial class NewMember : Form
     {
-        public Form1()
-        {
-            InitializeComponent();
-        }
+        /*private readonly IMembershipBusiness membershipBusiness;
 
-        private void textBox6_TextChanged(object sender, EventArgs e)
+        public NewMember(IMembershipBusiness membershipBusiness)
         {
+            this.membershipBusiness = membershipBusiness;
+            InitializeComponent();
+        }*/
+        public NewMember() { InitializeComponent(); }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            Shared.Models.Membership member = new Shared.Models.Membership();
+            member.FirstName = txtFirstName.Text;
+            member.LastName = txtLastName.Text;
+            member.Address = txtAddress.Text;
+            member.PhoneNumber = txtPhoneNumber.Text;
+            member.BirthDate = dtpBirthdate.Value;
+            member.PaymentDate = DateTime.Now;
+            member.Note = txtNote.Text;
             
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            this.Hide();
+            Terminal terminal = new Terminal();
+            terminal.ShowDialog();
         }
     }
 }
