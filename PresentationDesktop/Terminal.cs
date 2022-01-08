@@ -23,15 +23,14 @@ namespace PresentationDesktop
 
         private void btnNewMember_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             NewMember newMember = new NewMember();
-            newMember.ShowDialog();
+            newMember.Show();
         }
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
             txtUserID.Text = String.Empty;
-
         }
 
         private void Terminal_Load(object sender, EventArgs e)
@@ -41,23 +40,23 @@ namespace PresentationDesktop
 
         private void btnPersonalTraining_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             PersonalTraining personalTraining = new PersonalTraining();
-            personalTraining.ShowDialog();
+            personalTraining.Show();
         }
 
         private void btnMembership_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             Membership membership = new Membership();
-            membership.ShowDialog();
+            membership.Show();
         }
 
         private void btnMemberInfo_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             MembershipInfo membershipInfo = new MembershipInfo();
-            membershipInfo.ShowDialog();
+            membershipInfo.Show();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

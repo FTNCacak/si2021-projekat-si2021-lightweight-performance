@@ -9,6 +9,7 @@ namespace Shared.Interfaces
 {
     public interface IMembershipBusiness
     {
-
+        List<Membership> GetAllMemberships();
+        bool InsertMembership(Membership membership);
     }
 }

@@ -32,8 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1LastName = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3Back = new System.Windows.Forms.Button();
+            this.buttonShow = new System.Windows.Forms.Button();
+            this.buttonBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,29 +66,34 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 112);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(916, 676);
             this.dataGridView1.TabIndex = 3;
             // 
-            // button2
+            // buttonShow
             // 
-            this.button2.Location = new System.Drawing.Point(301, 53);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(419, 53);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Show employees";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonShow.Location = new System.Drawing.Point(301, 53);
+            this.buttonShow.Name = "buttonShow";
+            this.buttonShow.Size = new System.Drawing.Size(419, 53);
+            this.buttonShow.TabIndex = 4;
+            this.buttonShow.Text = "Show employees";
+            this.buttonShow.UseVisualStyleBackColor = true;
+            this.buttonShow.Click += new System.EventHandler(this.buttonShow_Click);
             // 
-            // button3Back
+            // buttonBack
             // 
-            this.button3Back.Location = new System.Drawing.Point(796, 53);
-            this.button3Back.Name = "button3Back";
-            this.button3Back.Size = new System.Drawing.Size(61, 26);
-            this.button3Back.TabIndex = 11;
-            this.button3Back.Text = "BACK";
-            this.button3Back.UseVisualStyleBackColor = true;
+            this.buttonBack.Location = new System.Drawing.Point(796, 53);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(61, 26);
+            this.buttonBack.TabIndex = 11;
+            this.buttonBack.Text = "BACK";
+            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // MembershipInfo
             // 
@@ -96,8 +101,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(66)))), ((int)(((byte)(97)))));
             this.ClientSize = new System.Drawing.Size(940, 800);
-            this.Controls.Add(this.button3Back);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonBack);
+            this.Controls.Add(this.buttonShow);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox1LastName);
             this.Controls.Add(this.label1);
@@ -120,7 +125,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1LastName;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3Back;
+        private System.Windows.Forms.Button buttonShow;
+        private System.Windows.Forms.Button buttonBack;
     }
 }

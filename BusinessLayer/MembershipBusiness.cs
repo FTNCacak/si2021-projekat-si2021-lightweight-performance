@@ -11,14 +11,14 @@ namespace BusinessLayer
 {
     public class MembershipBusiness : IMembershipBusiness
     {
-        private readonly IMembershipRepository membershipRepository;
+        readonly MembershipRepository membershipRepository = new MembershipRepository();
 
-        public MembershipBusiness(IMembershipRepository membershipRepository)
+        public List<Membership> GetAllMemberships()
         {
-            this.membershipRepository = membershipRepository;
+            return membershipRepository.GetAllMemberships();
         }
 
-        public bool InsertMembership (Membership membership)
+        public bool InsertMembership(Membership membership)
         {
             return membershipRepository.InsertMembership(membership) != 0;
         }

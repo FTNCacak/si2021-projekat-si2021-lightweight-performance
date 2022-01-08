@@ -76,6 +76,8 @@
             // 
             // dtpBirthdate
             // 
+            this.dtpBirthdate.CustomFormat = "dd-mm-yyyy";
+            this.dtpBirthdate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpBirthdate.Location = new System.Drawing.Point(134, 187);
             this.dtpBirthdate.Name = "dtpBirthdate";
             this.dtpBirthdate.Size = new System.Drawing.Size(211, 20);
@@ -210,7 +212,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "NewMember";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "NewMember";
             ((System.ComponentModel.ISupportInitialize)(this.pbx)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

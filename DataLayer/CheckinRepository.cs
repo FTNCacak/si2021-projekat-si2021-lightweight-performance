@@ -51,7 +51,7 @@ namespace DataLayer
                 {
                     Connection = sqlConnection,
                     CommandText = string.Format("INSERT INTO Checkins VALUES ('[0]','[1]')",
-                    checkin.CheckinDate, checkin.MembershipID)
+                        checkin.CheckinDate, checkin.MembershipID)
                 };
 
                 return command.ExecuteNonQuery();

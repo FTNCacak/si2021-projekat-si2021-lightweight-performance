@@ -21,7 +21,6 @@ namespace PresentationDesktop
             InitializeComponent();
         }
 
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             String userName = textBoxUser.Text;

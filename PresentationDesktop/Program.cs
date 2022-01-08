@@ -20,14 +20,17 @@ namespace PresentationDesktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Terminal());
+        }
 
+        /*
             var services = new ServiceCollection();
             ConfigureServices(services);
 
             using (ServiceProvider serviceProvider = services.BuildServiceProvider())
             {
-                var terminal = serviceProvider.GetRequiredService<Login>(); //zameniti sa Login formom na kraju
-                Application.Run(terminal);
+                var login = serviceProvider.GetRequiredService<NewMember>();
+                Application.Run(login);
             }
         }
 
@@ -41,7 +44,13 @@ namespace PresentationDesktop
             services.AddScoped<IMembershipRepository, MembershipRepository>();
             services.AddScoped<ITrainingBusiness, TrainingBusiness>();
             services.AddScoped<ITrainingRepository, TrainingRepository>();
-            services.AddScoped<Login>(); //zameniti sa Login formom na kraju
+            services.AddScoped<Login>();
+            services.AddScoped<Terminal>();
+            services.AddScoped<NewMember>();
+            services.AddScoped<Membership>();
+            services.AddScoped<PersonalTraining>();
+            services.AddScoped<MembershipInfo>();
         }
+        */
     }
 }

@@ -11,11 +11,6 @@ namespace BusinessLayer
 {
     public class EmployeeBusiness : IEmployeeBusiness
     {
-        private readonly IEmployeeRepository employeeRepository;
-
-        public EmployeeBusiness(IEmployeeRepository employeeRepository)
-        {
-            this.employeeRepository = employeeRepository;
-        }
+        private readonly EmployeeRepository employeeRepository = new EmployeeRepository();
     }
 }

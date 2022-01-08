@@ -11,11 +11,6 @@ namespace BusinessLayer
 {
     public class TrainingBusiness : ITrainingBusiness
     {
-        private readonly ITrainingRepository trainingRepository;
-
-        public TrainingBusiness(ITrainingRepository trainingRepository)
-        {
-            this.trainingRepository = trainingRepository;
-        }
+        private readonly ITrainingRepository trainingRepository = new TrainingRepository();
     }
 }
