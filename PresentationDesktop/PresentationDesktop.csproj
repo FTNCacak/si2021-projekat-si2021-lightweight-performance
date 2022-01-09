@@ -142,24 +142,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Refresh.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Exit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\LP_Header.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PasswordRequired.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\NewVezbac.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Termini.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
       <Project>{5c81b755-244d-440c-858a-81ba64a89b36}</Project>
       <Name>BusinessLayer</Name>
@@ -172,6 +154,39 @@
       <Project>{c3ff1795-baac-4bd8-9b51-973351d63603}</Project>
       <Name>Shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LightweightPerformance_Rounded.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LightweightPerformance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MemberInfo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Membership.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewMember.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_Dark.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_Light.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Personal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PasswordRequired1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

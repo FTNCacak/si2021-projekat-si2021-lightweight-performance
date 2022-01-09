@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace PresentationDesktop
 {
@@ -37,6 +38,16 @@ namespace PresentationDesktop
                 textBoxUser.Text = String.Empty;
                 textBoxPass.Text = String.Empty;
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            lblError.Text = "";            
+        }
+
+        private void lblError_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
