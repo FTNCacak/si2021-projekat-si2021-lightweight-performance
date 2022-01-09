@@ -64,6 +64,7 @@
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(89)))));
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(292, 141);
             this.dataGridView1.Name = "dataGridView1";
@@ -206,10 +207,9 @@
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.pictureBox2.Image = global::PresentationDesktop.Properties.Resources.LightweightPerformance_Rounded;
-            this.pictureBox2.InitialImage = global::PresentationDesktop.Properties.Resources.LP_Header;
             this.pictureBox2.Location = new System.Drawing.Point(18, 14);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(199, 196);
+            this.pictureBox2.Size = new System.Drawing.Size(199, 194);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
@@ -233,12 +233,11 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::PresentationDesktop.Properties.Resources.Exit2;
-            this.pictureBox1.InitialImage = global::PresentationDesktop.Properties.Resources.Exit;
-            this.pictureBox1.Location = new System.Drawing.Point(50, 632);
+            this.pictureBox1.Image = global::PresentationDesktop.Properties.Resources.BackButton;
+            this.pictureBox1.Location = new System.Drawing.Point(82, 644);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 43);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.Size = new System.Drawing.Size(61, 45);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -306,7 +305,6 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = global::PresentationDesktop.Properties.Resources.Personal;
-            this.pictureBox6.InitialImage = global::PresentationDesktop.Properties.Resources.NewVezbac;
             this.pictureBox6.Location = new System.Drawing.Point(18, 541);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(65, 65);
@@ -317,7 +315,6 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::PresentationDesktop.Properties.Resources.MemberInfo;
-            this.pictureBox5.InitialImage = global::PresentationDesktop.Properties.Resources.NewVezbac;
             this.pictureBox5.Location = new System.Drawing.Point(18, 400);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(65, 65);
@@ -328,7 +325,6 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::PresentationDesktop.Properties.Resources.Membership;
-            this.pictureBox4.InitialImage = global::PresentationDesktop.Properties.Resources.NewVezbac;
             this.pictureBox4.Location = new System.Drawing.Point(18, 470);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(65, 65);
@@ -339,7 +335,6 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::PresentationDesktop.Properties.Resources.NewMember;
-            this.pictureBox3.InitialImage = global::PresentationDesktop.Properties.Resources.NewVezbac;
             this.pictureBox3.Location = new System.Drawing.Point(18, 328);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(65, 65);

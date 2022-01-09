@@ -111,7 +111,7 @@
             // 
             // pictureBoxLogin
             // 
-            this.pictureBoxLogin.Image = global::PresentationDesktop.Properties.Resources.PasswordRequired1;
+            this.pictureBoxLogin.Image = global::PresentationDesktop.Properties.Resources.PasswordRequired;
             this.pictureBoxLogin.Location = new System.Drawing.Point(12, 19);
             this.pictureBoxLogin.Name = "pictureBoxLogin";
             this.pictureBoxLogin.Size = new System.Drawing.Size(98, 91);

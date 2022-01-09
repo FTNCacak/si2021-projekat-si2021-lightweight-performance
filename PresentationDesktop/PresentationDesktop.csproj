@@ -91,6 +91,11 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Terminal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,19 +119,13 @@
     <EmbeddedResource Include="PersonalTraining.resx">
       <DependentUpon>PersonalTraining.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Terminal.resx">
-      <DependentUpon>Terminal.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="Terminal.resx">
+      <DependentUpon>Terminal.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -187,6 +186,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PasswordRequired1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackButton1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_Dark1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_Light1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bg1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LightweightPerformance1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LightweightPerformance_Rounded1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MemberInfo1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Membership1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewMember1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PasswordRequired.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Personal1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
