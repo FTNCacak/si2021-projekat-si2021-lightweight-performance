@@ -88,11 +88,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.btnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-<<<<<<< HEAD
             this.btnLogin.Location = new System.Drawing.Point(273, 15);
-=======
-            this.btnLogin.Location = new System.Drawing.Point(273, 16);
->>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(129, 55);
             this.btnLogin.TabIndex = 5;
@@ -111,10 +107,6 @@
             this.lblError.Size = new System.Drawing.Size(168, 19);
             this.lblError.TabIndex = 6;
             this.lblError.Text = "WRONG LOGIN INFO";
-<<<<<<< HEAD
-=======
-            this.lblError.Click += new System.EventHandler(this.lblError_Click);
->>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
             // 
             // pictureBoxLogin
             // 

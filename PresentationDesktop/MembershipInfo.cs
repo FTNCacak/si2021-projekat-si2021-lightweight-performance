@@ -18,7 +18,6 @@ namespace PresentationDesktop
 {
     public partial class MembershipInfo : Form
     {
-<<<<<<< HEAD
         private readonly MembershipBusiness membershipBusiness = new MembershipBusiness();
         private int clickCount = 0;
 
@@ -55,42 +54,7 @@ namespace PresentationDesktop
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
-=======
-        //Corner manipulation
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn
-      (
-          int nLeftRect,     // x-coordinate of upper-left corner
-          int nTopRect,      // y-coordinate of upper-left corner
-          int nRightRect,    // x-coordinate of lower-right corner
-          int nBottomRect,   // y-coordinate of lower-right corner
-          int nWidthEllipse, // height of ellipse
-          int nHeightEllipse // width of ellipse
-      );
-        public MembershipInfo()
-        {
-            InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
         }
-
-        //Drag
-        protected override void WndProc(ref Message m)
-        {
-            switch (m.Msg)
-            {
-                case 0x84:
-                    base.WndProc(ref m);
-                    if ((int)m.Result == 0x1)
-                        m.Result = (IntPtr)0x2;
-                    return;
-            }
-
-            base.WndProc(ref m);
->>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
-        }
-        private int clickCount = 0;
-
 
         private void MembershipInfo_Load(object sender, EventArgs e)
         {
@@ -113,19 +77,22 @@ namespace PresentationDesktop
             }
         }
 
-<<<<<<< HEAD
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            string name = textBoxName.Text;
-            string[] firstLastName = name.Split(' ');
-            List<Membership> list = membershipBusiness.SearchMembership(firstLastName[0], firstLastName[1]);
-            dataGridView1.DataSource = list;
+            try
+            {
+                string name = textBoxName.Text;
+                string[] firstLastName = name.Split(' ');
+                List<Membership> list = membershipBusiness.SearchMembership(firstLastName[0], firstLastName[1]);
+                dataGridView1.DataSource = list;
+            }
+            catch
+            {
+                MessageBox.Show("The field must containt first and last name!", "Error");
+            }
         }
 
         private void pictureBoxBack_Click(object sender, EventArgs e)
-=======
-        private void pictureBox2_Click(object sender, EventArgs e)
->>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
         {
             Hide();
             Terminal terminal = new Terminal();

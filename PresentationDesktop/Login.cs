@@ -22,12 +22,14 @@ namespace PresentationDesktop
             InitializeComponent();
         }
 
+        private void Login_Load(object sender, EventArgs e)
+        {
+            lblError.Text = string.Empty;
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string userName = textBoxUser.Text;
-            string password = textBoxPass.Text;
-
-            if(userName == "admin" && password == "12345")
+            if(textBoxUser.Text == "admin" && textBoxPass.Text == "12345")
             {
                 Hide();
                 Terminal terminal = new Terminal();
@@ -43,20 +45,6 @@ namespace PresentationDesktop
                 textBoxUser.Text = string.Empty;
                 textBoxPass.Text = string.Empty;
             }
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-<<<<<<< HEAD
-            lblError.Text = string.Empty;
-=======
-            lblError.Text = "";            
-        }
-
-        private void lblError_Click(object sender, EventArgs e)
-        {
-
->>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
         }
     }
 }

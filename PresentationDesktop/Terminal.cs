@@ -18,8 +18,8 @@ namespace PresentationDesktop
 {
     public partial class Terminal : Form
     {
-<<<<<<< HEAD
         private readonly CheckinBusiness checkinBusiness = new CheckinBusiness();
+        private readonly MembershipBusiness membershipBusiness = new MembershipBusiness();
 
         //Corner manipulation
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -54,39 +54,6 @@ namespace PresentationDesktop
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
-=======
-        //Corner manipulation
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn
-      (
-          int nLeftRect,     // x-coordinate of upper-left corner
-          int nTopRect,      // y-coordinate of upper-left corner
-          int nRightRect,    // x-coordinate of lower-right corner
-          int nBottomRect,   // y-coordinate of lower-right corner
-          int nWidthEllipse, // height of ellipse
-          int nHeightEllipse // width of ellipse
-      );
-        public Terminal()
-        {            
-            InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
-        }
-
-        //Drag
-        protected override void WndProc(ref Message m)
-        {
-            switch (m.Msg)
-            {
-                case 0x84:
-                    base.WndProc(ref m);
-                    if ((int)m.Result == 0x1)
-                        m.Result = (IntPtr)0x2;
-                    return;
-            }
-
-            base.WndProc(ref m);
->>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
         }
 
         private void Terminal_Load(object sender, EventArgs e)
@@ -96,27 +63,57 @@ namespace PresentationDesktop
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
-            string userID = txtUserID.Text;
-
-            Checkin checkin = new Checkin
+            try
             {
-                MembershipID = Convert.ToInt32(userID),
-                CheckinDate = DateTime.Now
-            };
+                bool match = false;
 
-            if (txtUserID.Text == string.Empty)
-                MessageBox.Show("INVALID DATA");
-            else
-            {
-                if (checkinBusiness.InsertCheckin(checkin))
+                Checkin checkin = new Checkin
                 {
-                    txtUserID.Text = string.Empty;
-                    UpdateDGV();
+                    MembershipID = Convert.ToInt32(txtUserID.Text),
+                    CheckinDate = DateTime.Now
+                };
+
+                List<Membership> list = membershipBusiness.GetAllMemberships();
+
+                foreach (Membership membership in list)
+                    if (membership.MembershipID == Convert.ToInt32(txtUserID.Text))
+                        match = true;
+
+                if (match)
+                {
+                    if (checkinBusiness.InsertCheckin(checkin))
+                    {
+                        txtUserID.Text = string.Empty;
+                        UpdateDGV();
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("INVALID DATA");
+                    MessageBox.Show("A member with that ID doesn't exist!", "Error");
+                    txtUserID.Text = string.Empty;
+                    UpdateDGV();
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            } 
+        }
+
+        private void buttonFilter_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
+            {
+                sqlConnection.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT CheckinDate, FirstName, LastName, ExpirationDate FROM Checkins, Memberships WHERE Appointment = " + dateTimePicker1.Value + " AND Checkins.MembershipID = Memberships.MembershipID ORDER BY CheckinDate DESC", sqlConnection);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                dataGridView1.AutoGenerateColumns = false;
+                dataGridView1.DataSource = dt;
+                dataGridView1.AutoResizeColumns();
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
         }
 
@@ -153,7 +150,6 @@ namespace PresentationDesktop
             Application.Exit();
         }
 
-<<<<<<< HEAD
         private void UpdateDGV()
         {
             using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
@@ -170,9 +166,6 @@ namespace PresentationDesktop
             }
         }
 
-=======
-        //textBoxUserID
->>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
         private void txtUserID_Click(object sender, EventArgs e)
         {
             if (txtUserID.Text == "Enter user ID here")
@@ -188,43 +181,6 @@ namespace PresentationDesktop
                 txtUserID.Text = "Enter user ID here";
                 txtUserID.ForeColor = Color.Silver;
             }
-        }
-
-<<<<<<< HEAD
-        private void buttonFilter_Click(object sender, EventArgs e)
-        {
-            using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
-            {
-                sqlConnection.Open();
-
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT CheckinDate, FirstName, LastName, ExpirationDate FROM Checkins, Memberships WHERE Appointment = " + dateTimePicker1.Value + " AND Checkins.MembershipID = Memberships.MembershipID ORDER BY CheckinDate DESC", sqlConnection);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-
-                dataGridView1.AutoGenerateColumns = false;
-                dataGridView1.DataSource = dt;
-                dataGridView1.AutoResizeColumns();
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            }
-=======
-        //textBoxFilter
-        private void txtFilter_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-        private void txtFilter_Enter(object sender, EventArgs e)
-        {
-
-        }
-        private void txtFilter_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void WelcomeText_Click(object sender, EventArgs e)
-        {
-
->>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
         }
     }
 }

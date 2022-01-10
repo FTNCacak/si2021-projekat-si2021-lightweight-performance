@@ -54,23 +54,21 @@ namespace PresentationDesktop
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
         }
 
-        private void Membership_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (membershipBusiness.UpdateMembership(membershipBusiness.GetMembershipByID(Convert.ToInt32(textBoxMemberID.Text)), Convert.ToInt32(textBoxMonths.Text)))
+            try
             {
-                if(Convert.ToInt32(textBoxMonths.Text) == 1)
-                    MessageBox.Show("Cost for 1 month of membership: " + 2500);
-                else
-                    MessageBox.Show("Cost for " + textBoxMonths.Text + " months of membership: " + Convert.ToInt32(textBoxMonths.Text) * 2500);
+                if (membershipBusiness.UpdateMembership(membershipBusiness.GetMembershipByID(Convert.ToInt32(textBoxMemberID.Text)), Convert.ToInt32(textBoxMonths.Text)))
+                {
+                    if (Convert.ToInt32(textBoxMonths.Text) == 1)
+                        MessageBox.Show("Cost for 1 month of membership: 2500", "Success");
+                    else
+                        MessageBox.Show("Cost for " + textBoxMonths.Text + " months of membership: " + Convert.ToInt32(textBoxMonths.Text) * 2500, "Success");
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Fail");
+                MessageBox.Show("A member with that ID doesn't exist!", "Error");
             }
         }
 
