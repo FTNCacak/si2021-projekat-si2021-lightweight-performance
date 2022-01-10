@@ -48,11 +48,12 @@ namespace DataLayer
             {
                 sqlConnection.Open();
 
-                SqlCommand command = new SqlCommand
-                {
-                    Connection = sqlConnection,
-                    CommandText = string.Format("INSERT INTO Trainings VALUES ('[0]','[1]','[2]','[3]')", training.Appointment, training.MembershipID, training.EmployeeID, training.Type)
-                };
+                SqlCommand command = new SqlCommand("INSERT INTO Trainings VALUES(@Appointment, @MembershipID, @EmployeeID, @Type)", sqlConnection);
+
+                command.Parameters.AddWithValue("@Appointment", training.Appointment);
+                command.Parameters.AddWithValue("@MembershipID", training.MembershipID);
+                command.Parameters.AddWithValue("@EmployeeID", training.EmployeeID);
+                command.Parameters.AddWithValue("@Type", training.Type);
 
                 return command.ExecuteNonQuery();
             }

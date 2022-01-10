@@ -11,7 +11,7 @@ namespace Shared.Interfaces
     {
         List<Membership> GetAllMemberships();
         int InsertMembership(Membership membership);
-        int UpdateMembership(Membership membership);
+        int UpdateMembership(Membership membership, int number);
         int DeleteMembership(int MembershipID);
     }
 }

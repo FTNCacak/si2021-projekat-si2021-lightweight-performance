@@ -47,12 +47,10 @@ namespace DataLayer
             {
                 sqlConnection.Open();
 
-                SqlCommand command = new SqlCommand
-                {
-                    Connection = sqlConnection,
-                    CommandText = string.Format("INSERT INTO Checkins VALUES ('[0]','[1]')",
-                        checkin.CheckinDate, checkin.MembershipID)
-                };
+                SqlCommand command = new SqlCommand("INSERT INTO Checkins VALUES(@CheckinDate, @MembershipID)", sqlConnection);
+
+                command.Parameters.AddWithValue("@CheckinDate", checkin.CheckinDate);
+                command.Parameters.AddWithValue("@MembershipID", checkin.MembershipID);
 
                 return command.ExecuteNonQuery();
             }

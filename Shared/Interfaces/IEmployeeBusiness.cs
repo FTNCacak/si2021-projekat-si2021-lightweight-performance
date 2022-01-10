@@ -9,6 +9,6 @@ namespace Shared.Interfaces
 {
     public interface IEmployeeBusiness
     {
-
+        List<Employee> GetAllEmployees();
     }
 }

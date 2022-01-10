@@ -12,5 +12,15 @@ namespace BusinessLayer
     public class TrainingBusiness : ITrainingBusiness
     {
         private readonly ITrainingRepository trainingRepository = new TrainingRepository();
+
+        public List<Training> GetAllTrainings()
+        {
+            return trainingRepository.GetAllTrainings();
+        }
+
+        public bool InsertTraining(Training training)
+        {
+            return trainingRepository.InsertTraining(training) != 0;
+        }
     }
 }

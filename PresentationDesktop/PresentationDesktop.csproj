@@ -73,11 +73,11 @@
     <Compile Include="PersonalTraining.Designer.cs">
       <DependentUpon>PersonalTraining.cs</DependentUpon>
     </Compile>
-    <Compile Include="Membership.cs">
+    <Compile Include="UpdateMembership.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Membership.Designer.cs">
-      <DependentUpon>Membership.cs</DependentUpon>
+    <Compile Include="UpdateMembership.Designer.cs">
+      <DependentUpon>UpdateMembership.cs</DependentUpon>
     </Compile>
     <Compile Include="NewMember.cs">
       <SubType>Form</SubType>
@@ -91,6 +91,11 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Terminal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,8 +107,8 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Membership.resx">
-      <DependentUpon>Membership.cs</DependentUpon>
+    <EmbeddedResource Include="UpdateMembership.resx">
+      <DependentUpon>UpdateMembership.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MembershipInfo.resx">
       <DependentUpon>MembershipInfo.cs</DependentUpon>
@@ -114,19 +119,13 @@
     <EmbeddedResource Include="PersonalTraining.resx">
       <DependentUpon>PersonalTraining.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Terminal.resx">
-      <DependentUpon>Terminal.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="Terminal.resx">
+      <DependentUpon>Terminal.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -142,24 +141,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Refresh.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Exit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\LP_Header.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PasswordRequired.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\NewVezbac.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Termini.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
       <Project>{5c81b755-244d-440c-858a-81ba64a89b36}</Project>
       <Name>BusinessLayer</Name>
@@ -172,6 +153,75 @@
       <Project>{c3ff1795-baac-4bd8-9b51-973351d63603}</Project>
       <Name>Shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LightweightPerformance_Rounded.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LightweightPerformance.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MemberInfo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Membership.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewMember.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_Dark.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_Light.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Personal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PasswordRequired1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackButton1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_Dark1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_Light1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bg1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LightweightPerformance1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LightweightPerformance_Rounded1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MemberInfo1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Membership1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewMember1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PasswordRequired.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Personal1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

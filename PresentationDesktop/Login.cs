@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace PresentationDesktop
 {
@@ -23,20 +24,30 @@ namespace PresentationDesktop
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            String userName = textBoxUser.Text;
-            String password = textBoxPass.Text;
+            string userName = textBoxUser.Text;
+            string password = textBoxPass.Text;
+
             if(userName == "admin" && password == "12345")
             {
-                this.Hide();
+                Hide();
                 Terminal terminal = new Terminal();
-                terminal.ShowDialog();
+                terminal.Show();
+
+                lblError.Text = string.Empty;
+                textBoxUser.Text = string.Empty;
+                textBoxPass.Text = string.Empty;
             }
             else
             {
                 lblError.Text = "WRONG LOGIN INFO";
-                textBoxUser.Text = String.Empty;
-                textBoxPass.Text = String.Empty;
+                textBoxUser.Text = string.Empty;
+                textBoxPass.Text = string.Empty;
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            lblError.Text = string.Empty;
         }
     }
 }

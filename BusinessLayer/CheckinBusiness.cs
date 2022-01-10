@@ -12,5 +12,15 @@ namespace BusinessLayer
     public class CheckinBusiness : ICheckinBusiness
     {
         private readonly CheckinRepository checkinRepository = new CheckinRepository();
+
+        public List<Checkin> GetAllCheckins()
+        {
+            return checkinRepository.GetAllCheckins();
+        }
+
+        public bool InsertCheckin(Checkin checkin)
+        {
+            return checkinRepository.InsertCheckin(checkin) != 0;
+        }
     }
 }

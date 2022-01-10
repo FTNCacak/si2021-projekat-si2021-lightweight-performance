@@ -29,7 +29,7 @@ namespace PresentationDesktop
 
             using (ServiceProvider serviceProvider = services.BuildServiceProvider())
             {
-                var login = serviceProvider.GetRequiredService<NewMember>();
+                var login = serviceProvider.GetRequiredService<Login>();
                 Application.Run(login);
             }
         }
@@ -47,7 +47,7 @@ namespace PresentationDesktop
             services.AddScoped<Login>();
             services.AddScoped<Terminal>();
             services.AddScoped<NewMember>();
-            services.AddScoped<Membership>();
+            services.AddScoped<UpdateMembership>();
             services.AddScoped<PersonalTraining>();
             services.AddScoped<MembershipInfo>();
         }

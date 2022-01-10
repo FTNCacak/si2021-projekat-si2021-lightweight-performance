@@ -13,14 +13,30 @@ namespace BusinessLayer
     {
         readonly MembershipRepository membershipRepository = new MembershipRepository();
 
+        public List<Membership> SearchMembership(string firstName, string lastName)
+        {
+            return membershipRepository.GetAllMemberships().Where(member => member.FirstName.ToUpper().Equals(firstName.ToUpper()) && member.LastName.ToUpper().Equals(lastName.ToUpper())).ToList();
+        }
+
+        public Membership GetMembershipByID(int id)
+        {
+            List<Membership> list =  GetAllMemberships().Where(member => member.MembershipID == id).ToList();
+            return list.First();
+        }
+
         public List<Membership> GetAllMemberships()
         {
-            return membershipRepository.GetAllMemberships();
+            return membershipRepository.GetAllMemberships().ToList();
         }
 
         public bool InsertMembership(Membership membership)
         {
             return membershipRepository.InsertMembership(membership) != 0;
+        }
+
+        public bool UpdateMembership(Membership membership, int number)
+        {
+            return membershipRepository.UpdateMembership(membership, number) != 0;
         }
     }
 }

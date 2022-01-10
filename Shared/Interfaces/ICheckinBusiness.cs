@@ -9,6 +9,7 @@ namespace Shared.Interfaces
 {
     public interface ICheckinBusiness
     {
-
+        List<Checkin> GetAllCheckins();
+        bool InsertCheckin(Checkin checkin);
     }
 }

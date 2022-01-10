@@ -15,6 +15,7 @@ namespace Shared.Models
         public string PhoneNumber { get; set; }
         public DateTime BirthDate { get; set; }
         public DateTime PaymentDate { get; set; }
+        public DateTime ExpirationDate { get; set; }
         public string Note { get; set; }
     }
 }

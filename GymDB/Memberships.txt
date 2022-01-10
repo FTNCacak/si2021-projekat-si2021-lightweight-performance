@@ -1,11 +1,12 @@
 CREATE TABLE [dbo].[Memberships] (
-    [MembershipID] INT            IDENTITY (1, 1) NOT NULL,
-    [FirstName]    NVARCHAR (20)  NOT NULL,
-    [LastName]     NVARCHAR (20)  NOT NULL,
-    [Address]      NVARCHAR (50)  NOT NULL,
-    [PhoneNumber]  NVARCHAR (10)  NOT NULL,
-    [BirthDate]    DATE           NOT NULL,
-    [PaymentDate]  DATE           NOT NULL,
-    [Note]         NVARCHAR (MAX) NULL,
+    [MembershipID]   INT            IDENTITY (1, 1) NOT NULL,
+    [FirstName]      NVARCHAR (20)  NOT NULL,
+    [LastName]       NVARCHAR (20)  NOT NULL,
+    [Address]        NVARCHAR (50)  NOT NULL,
+    [PhoneNumber]    NVARCHAR (10)  NOT NULL,
+    [BirthDate]      DATE           NOT NULL,
+    [PaymentDate]    DATE           NOT NULL,
+    [ExpirationDate] DATE           NOT NULL,
+    [Note]           NVARCHAR (MAX) NULL,
     PRIMARY KEY CLUSTERED ([MembershipID] ASC)
 );

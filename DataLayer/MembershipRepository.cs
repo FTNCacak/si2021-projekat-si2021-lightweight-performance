@@ -38,12 +38,16 @@ namespace DataLayer
                         PhoneNumber = dataReader.GetString(4),
                         BirthDate = dataReader.GetDateTime(5),
                         PaymentDate = dataReader.GetDateTime(6),
-                        Note = dataReader.GetString(7)
+                        ExpirationDate = dataReader.GetDateTime(7)
                     };
+
+                    if (dataReader.IsDBNull(8))
+                        membership.Note = string.Empty;
+                    else
+                        membership.Note = dataReader.GetString(8);
 
                     membershipList.Add(membership);
                 }
-
             }
             return membershipList;
         }
@@ -54,35 +58,33 @@ namespace DataLayer
             {
                 sqlConnection.Open();
 
-                SqlCommand command = new SqlCommand
-                {
-                    Connection = sqlConnection,
-                    CommandText = string.Format("INSERT INTO Memberships VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", 
-                        membership.FirstName, membership.LastName, membership.Address, membership.PhoneNumber, membership.BirthDate, membership.PaymentDate, membership.Note)
-                };
+                SqlCommand command = new SqlCommand("INSERT INTO Memberships VALUES(@FirstName, @LastName, @Address, @PhoneNumber, @BirthDate, @PaymentDate, @ExpirationDate, @Note)", sqlConnection);
+
+                command.Parameters.AddWithValue("@FirstName", membership.FirstName);
+                command.Parameters.AddWithValue("@LastName", membership.LastName);
+                command.Parameters.AddWithValue("@Address", membership.Address);
+                command.Parameters.AddWithValue("@PhoneNumber", membership.PhoneNumber);
+                command.Parameters.AddWithValue("@Birthdate", membership.BirthDate);
+                command.Parameters.AddWithValue("@PaymentDate", membership.PaymentDate);
+                command.Parameters.AddWithValue("@ExpirationDate", membership.ExpirationDate);
+                command.Parameters.AddWithValue("@Note", membership.Note);
 
                 return command.ExecuteNonQuery();
             }
         }
 
-        //izmeniti metodu ako se bude koristila
-        public int UpdateMembership(Membership membership)
+        public int UpdateMembership(Membership membership, int number)
         {
             using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
             {
                 sqlConnection.Open();
 
-                string sqlQuery = "UPDATE Memberships SET FirstName=@FirstName, LastName=@LastName, Address=@Address, PhoneNumber = @PhoneNumber, BirthDate = @BirthDate,PaymentDate = @PaymentDate,Note = @Note WHERE CardNumber=@CardNumber";
+                string sqlQuery = "UPDATE Memberships SET ExpirationDate = CASE WHEN ExpirationDate < GetDate() THEN DateAdd(month, @number, GetDate()) ELSE DateAdd(month, @number, @ExpirationDate) END WHERE MembershipID = @MembershipID";
 
                 SqlCommand command = new SqlCommand(sqlQuery, sqlConnection);
-                command.Parameters.AddWithValue("@CardNumber", membership.MembershipID);
-                command.Parameters.AddWithValue("@FirstName", membership.FirstName);
-                command.Parameters.AddWithValue("@LastName", membership.LastName);
-                command.Parameters.AddWithValue("@Address", membership.Address);
-                command.Parameters.AddWithValue("@PhoneNumber", membership.PhoneNumber);
-                command.Parameters.AddWithValue("@BirthDate", membership.BirthDate);
-                command.Parameters.AddWithValue("@PaymentDate", membership.PaymentDate);
-                command.Parameters.AddWithValue("@Note", membership.Note);
+                command.Parameters.AddWithValue("@ExpirationDate", membership.ExpirationDate);
+                command.Parameters.AddWithValue("@MembershipID", membership.MembershipID);
+                command.Parameters.AddWithValue("@number", number);
 
                 return command.ExecuteNonQuery();
             }
