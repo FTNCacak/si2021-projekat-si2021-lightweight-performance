@@ -18,6 +18,7 @@ namespace PresentationDesktop
 {
     public partial class Terminal : Form
     {
+<<<<<<< HEAD
         private readonly CheckinBusiness checkinBusiness = new CheckinBusiness();
 
         //Corner manipulation
@@ -53,6 +54,39 @@ namespace PresentationDesktop
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
+=======
+        //Corner manipulation
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+      (
+          int nLeftRect,     // x-coordinate of upper-left corner
+          int nTopRect,      // y-coordinate of upper-left corner
+          int nRightRect,    // x-coordinate of lower-right corner
+          int nBottomRect,   // y-coordinate of lower-right corner
+          int nWidthEllipse, // height of ellipse
+          int nHeightEllipse // width of ellipse
+      );
+        public Terminal()
+        {            
+            InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
+        }
+
+        //Drag
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case 0x84:
+                    base.WndProc(ref m);
+                    if ((int)m.Result == 0x1)
+                        m.Result = (IntPtr)0x2;
+                    return;
+            }
+
+            base.WndProc(ref m);
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
         }
 
         private void Terminal_Load(object sender, EventArgs e)
@@ -119,6 +153,7 @@ namespace PresentationDesktop
             Application.Exit();
         }
 
+<<<<<<< HEAD
         private void UpdateDGV()
         {
             using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
@@ -135,6 +170,9 @@ namespace PresentationDesktop
             }
         }
 
+=======
+        //textBoxUserID
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
         private void txtUserID_Click(object sender, EventArgs e)
         {
             if (txtUserID.Text == "Enter user ID here")
@@ -152,6 +190,7 @@ namespace PresentationDesktop
             }
         }
 
+<<<<<<< HEAD
         private void buttonFilter_Click(object sender, EventArgs e)
         {
             using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
@@ -167,6 +206,25 @@ namespace PresentationDesktop
                 dataGridView1.AutoResizeColumns();
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
+=======
+        //textBoxFilter
+        private void txtFilter_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+        private void txtFilter_Enter(object sender, EventArgs e)
+        {
+
+        }
+        private void txtFilter_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void WelcomeText_Click(object sender, EventArgs e)
+        {
+
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
         }
     }
 }

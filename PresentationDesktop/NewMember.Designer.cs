@@ -43,12 +43,20 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.pictureBoxBack = new System.Windows.Forms.PictureBox();
+=======
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
             this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
+=======
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +67,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(211, 20);
             this.txtFirstName.TabIndex = 0;
+            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // txtLastName
             // 
@@ -87,7 +96,12 @@
             // dtpBirthdate
             // 
             this.dtpBirthdate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+<<<<<<< HEAD
             this.dtpBirthdate.CustomFormat = "";
+=======
+            this.dtpBirthdate.CustomFormat = "dd-mm-yyyy";
+            this.dtpBirthdate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
             this.dtpBirthdate.Location = new System.Drawing.Point(30, 160);
             this.dtpBirthdate.Name = "dtpBirthdate";
             this.dtpBirthdate.Size = new System.Drawing.Size(211, 20);
@@ -180,7 +194,11 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label6);
+<<<<<<< HEAD
             this.panel1.Controls.Add(this.pictureBoxBack);
+=======
+            this.panel1.Controls.Add(this.pictureBox1);
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label7);
@@ -204,6 +222,7 @@
             this.label3.Text = "Add new member";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+<<<<<<< HEAD
             // pictureBoxBack
             // 
             this.pictureBoxBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -216,6 +235,20 @@
             this.pictureBoxBack.TabIndex = 18;
             this.pictureBoxBack.TabStop = false;
             this.pictureBoxBack.Click += new System.EventHandler(this.pictureBoxBack_Click);
+=======
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::PresentationDesktop.Properties.Resources.BackButton;
+            this.pictureBox1.Location = new System.Drawing.Point(97, 247);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(53, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
             // 
             // panel3
             // 
@@ -276,9 +309,16 @@
             this.Name = "NewMember";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewMember";
+<<<<<<< HEAD
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
+=======
+            this.Load += new System.EventHandler(this.NewMember_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -300,7 +340,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel1;
+<<<<<<< HEAD
         private System.Windows.Forms.PictureBox pictureBoxBack;
+=======
+        private System.Windows.Forms.PictureBox pictureBox1;
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnConfirm;

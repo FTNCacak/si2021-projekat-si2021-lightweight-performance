@@ -30,22 +30,37 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MembershipInfo));
+<<<<<<< HEAD
             this.buttonSearch = new System.Windows.Forms.Button();
+=======
+            this.button1Search = new System.Windows.Forms.Button();
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonShow = new System.Windows.Forms.Button();
+<<<<<<< HEAD
             this.pictureBoxBack = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBoxActive = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
+=======
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonSearch
             // 
+<<<<<<< HEAD
             this.buttonSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(51)))));
             this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearch.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -56,6 +71,17 @@
             this.buttonSearch.Text = "🔎";
             this.buttonSearch.UseVisualStyleBackColor = false;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+=======
+            this.button1Search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(51)))));
+            this.button1Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1Search.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1Search.Location = new System.Drawing.Point(173, 142);
+            this.button1Search.Name = "button1Search";
+            this.button1Search.Size = new System.Drawing.Size(120, 33);
+            this.button1Search.TabIndex = 0;
+            this.button1Search.Text = "🔎";
+            this.button1Search.UseVisualStyleBackColor = false;
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
             // 
             // label1
             // 
@@ -63,14 +89,23 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
+<<<<<<< HEAD
             this.label1.Location = new System.Drawing.Point(11, 120);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(102, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Enter name:";
+=======
+            this.label1.Location = new System.Drawing.Point(24, 120);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(133, 19);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Enter last name:";
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
             // 
             // textBoxName
             // 
+<<<<<<< HEAD
             this.textBoxName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
             this.textBoxName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxName.ForeColor = System.Drawing.SystemColors.InactiveBorder;
@@ -79,6 +114,16 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(152, 33);
             this.textBoxName.TabIndex = 2;
+=======
+            this.textBox1LastName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.textBox1LastName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1LastName.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox1LastName.Location = new System.Drawing.Point(15, 142);
+            this.textBox1LastName.Multiline = true;
+            this.textBox1LastName.Name = "textBox1LastName";
+            this.textBox1LastName.Size = new System.Drawing.Size(152, 33);
+            this.textBox1LastName.TabIndex = 2;
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
             // 
             // dataGridView1
             // 
@@ -116,6 +161,7 @@
             this.buttonShow.UseVisualStyleBackColor = false;
             this.buttonShow.Click += new System.EventHandler(this.buttonShow_Click);
             // 
+<<<<<<< HEAD
             // pictureBoxBack
             // 
             this.pictureBoxBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -128,11 +174,26 @@
             this.pictureBoxBack.TabIndex = 19;
             this.pictureBoxBack.TabStop = false;
             this.pictureBoxBack.Click += new System.EventHandler(this.pictureBoxBack_Click);
+=======
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::PresentationDesktop.Properties.Resources.BackButton;
+            this.pictureBox2.Location = new System.Drawing.Point(131, 360);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(53, 40);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.panel1.BackgroundImage = global::PresentationDesktop.Properties.Resources.Background_Light;
+<<<<<<< HEAD
             this.panel1.Controls.Add(this.checkBoxActive);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
@@ -140,11 +201,22 @@
             this.panel1.Controls.Add(this.buttonShow);
             this.panel1.Controls.Add(this.textBoxName);
             this.panel1.Controls.Add(this.buttonSearch);
+=======
+            this.panel1.Controls.Add(this.checkBox1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.buttonShow);
+            this.panel1.Controls.Add(this.textBox1LastName);
+            this.panel1.Controls.Add(this.button1Search);
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
             this.panel1.Location = new System.Drawing.Point(15, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(318, 415);
             this.panel1.TabIndex = 20;
             // 
+<<<<<<< HEAD
             // checkBoxActive
             // 
             this.checkBoxActive.AutoSize = true;
@@ -162,6 +234,37 @@
             this.checkBoxActive.TabIndex = 22;
             this.checkBoxActive.Text = "Show active memberships";
             this.checkBoxActive.UseVisualStyleBackColor = true;
+=======
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
+            this.checkBox1.FlatAppearance.BorderSize = 5;
+            this.checkBox1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
+            this.checkBox1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
+            this.checkBox1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
+            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.checkBox1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
+            this.checkBox1.Location = new System.Drawing.Point(200, 184);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(68, 24);
+            this.checkBox1.TabIndex = 22;
+            this.checkBox1.Text = "Enable";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
+            this.label2.Location = new System.Drawing.Point(11, 186);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(183, 19);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Show active members:";
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
             // 
             // label3
             // 
@@ -195,7 +298,11 @@
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.MembershipInfo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
+=======
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -209,9 +316,17 @@
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonShow;
+<<<<<<< HEAD
         private System.Windows.Forms.PictureBox pictureBoxBack;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox checkBoxActive;
+=======
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label2;
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
     }
 }

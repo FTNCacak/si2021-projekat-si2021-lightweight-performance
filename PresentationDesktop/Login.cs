@@ -47,7 +47,16 @@ namespace PresentationDesktop
 
         private void Login_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             lblError.Text = string.Empty;
+=======
+            lblError.Text = "";            
+        }
+
+        private void lblError_Click(object sender, EventArgs e)
+        {
+
+>>>>>>> ef1168acf8dac0fcc95e77aae77c74740c213f21
         }
     }
 }
