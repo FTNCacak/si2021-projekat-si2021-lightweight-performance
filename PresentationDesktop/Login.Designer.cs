@@ -37,8 +37,10 @@
             this.lblError = new System.Windows.Forms.Label();
             this.pictureBoxLogin = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBoxExit = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogin)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -67,6 +69,8 @@
             // 
             // textBoxUser
             // 
+            this.textBoxUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.textBoxUser.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.textBoxUser.Location = new System.Drawing.Point(135, 15);
             this.textBoxUser.Name = "textBoxUser";
             this.textBoxUser.Size = new System.Drawing.Size(132, 20);
@@ -74,6 +78,8 @@
             // 
             // textBoxPass
             // 
+            this.textBoxPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.textBoxPass.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.textBoxPass.Location = new System.Drawing.Point(135, 50);
             this.textBoxPass.Name = "textBoxPass";
             this.textBoxPass.PasswordChar = '*';
@@ -100,18 +106,18 @@
             // 
             this.lblError.AutoSize = true;
             this.lblError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblError.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblError.Location = new System.Drawing.Point(195, 108);
+            this.lblError.Location = new System.Drawing.Point(182, 109);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(168, 19);
+            this.lblError.Size = new System.Drawing.Size(198, 22);
             this.lblError.TabIndex = 6;
             this.lblError.Text = "WRONG LOGIN INFO";
             // 
             // pictureBoxLogin
             // 
             this.pictureBoxLogin.Image = global::PresentationDesktop.Properties.Resources.PasswordRequired;
-            this.pictureBoxLogin.Location = new System.Drawing.Point(12, 19);
+            this.pictureBoxLogin.Location = new System.Drawing.Point(25, 20);
             this.pictureBoxLogin.Name = "pictureBoxLogin";
             this.pictureBoxLogin.Size = new System.Drawing.Size(98, 91);
             this.pictureBoxLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -126,10 +132,23 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.textBoxPass);
             this.panel1.Controls.Add(this.textBoxUser);
-            this.panel1.Location = new System.Drawing.Point(96, 22);
+            this.panel1.Location = new System.Drawing.Point(109, 23);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(420, 83);
             this.panel1.TabIndex = 7;
+            // 
+            // pictureBoxExit
+            // 
+            this.pictureBoxExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pictureBoxExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxExit.Image = global::PresentationDesktop.Properties.Resources.Exit;
+            this.pictureBoxExit.Location = new System.Drawing.Point(535, 2);
+            this.pictureBoxExit.Name = "pictureBoxExit";
+            this.pictureBoxExit.Size = new System.Drawing.Size(21, 22);
+            this.pictureBoxExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxExit.TabIndex = 8;
+            this.pictureBoxExit.TabStop = false;
+            this.pictureBoxExit.Click += new System.EventHandler(this.pictureBoxExit_Click);
             // 
             // Login
             // 
@@ -137,7 +156,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(66)))), ((int)(((byte)(97)))));
             this.BackgroundImage = global::PresentationDesktop.Properties.Resources.Background_Dark;
-            this.ClientSize = new System.Drawing.Size(529, 129);
+            this.ClientSize = new System.Drawing.Size(562, 135);
+            this.Controls.Add(this.pictureBoxExit);
             this.Controls.Add(this.pictureBoxLogin);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblError);
@@ -150,6 +170,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogin)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,5 +186,6 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBoxExit;
     }
 }

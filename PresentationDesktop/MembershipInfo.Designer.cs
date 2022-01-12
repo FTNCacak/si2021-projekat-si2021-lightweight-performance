@@ -73,7 +73,7 @@
             // 
             this.textBoxName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
             this.textBoxName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxName.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBoxName.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.textBoxName.Location = new System.Drawing.Point(15, 142);
             this.textBoxName.Multiline = true;
             this.textBoxName.Name = "textBoxName";

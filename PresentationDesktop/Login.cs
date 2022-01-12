@@ -46,5 +46,10 @@ namespace PresentationDesktop
                 textBoxPass.Text = string.Empty;
             }
         }
+
+        private void pictureBoxExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

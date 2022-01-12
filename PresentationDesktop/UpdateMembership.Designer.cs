@@ -37,12 +37,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBoxCost = new System.Windows.Forms.TextBox();
-            this.checkBoxTraining = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -57,7 +53,6 @@
             this.textBoxMemberID.Name = "textBoxMemberID";
             this.textBoxMemberID.Size = new System.Drawing.Size(129, 22);
             this.textBoxMemberID.TabIndex = 1;
-            this.textBoxMemberID.Text = "Enter member ID";
             this.textBoxMemberID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxMonths
@@ -69,7 +64,6 @@
             this.textBoxMonths.Name = "textBoxMonths";
             this.textBoxMonths.Size = new System.Drawing.Size(129, 22);
             this.textBoxMonths.TabIndex = 2;
-            this.textBoxMonths.Text = "Insert # months";
             this.textBoxMonths.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
@@ -89,7 +83,7 @@
             this.pictureBoxBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.pictureBoxBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxBack.Image = global::PresentationDesktop.Properties.Resources.BackButton;
-            this.pictureBoxBack.Location = new System.Drawing.Point(89, 220);
+            this.pictureBoxBack.Location = new System.Drawing.Point(74, 140);
             this.pictureBoxBack.Name = "pictureBoxBack";
             this.pictureBoxBack.Size = new System.Drawing.Size(53, 40);
             this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -104,7 +98,7 @@
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.btnConfirm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.btnConfirm.Location = new System.Drawing.Point(44, 207);
+            this.btnConfirm.Location = new System.Drawing.Point(47, 126);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(129, 53);
             this.btnConfirm.TabIndex = 21;
@@ -119,12 +113,10 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBoxBack);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
             this.panel1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(223, 273);
+            this.panel1.Size = new System.Drawing.Size(223, 193);
             this.panel1.TabIndex = 22;
             // 
             // label5
@@ -153,45 +145,16 @@
             this.label4.Text = "Update membership";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label2.Location = new System.Drawing.Point(29, 153);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 38);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Membership\r\nCost:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.label3.Location = new System.Drawing.Point(29, 124);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 19);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Personal Training:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // panel2
             // 
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.textBoxCost);
             this.panel2.Controls.Add(this.textBoxMemberID);
             this.panel2.Controls.Add(this.btnConfirm);
             this.panel2.Controls.Add(this.textBoxMonths);
-            this.panel2.Controls.Add(this.checkBoxTraining);
             this.panel2.Location = new System.Drawing.Point(250, 13);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(199, 273);
+            this.panel2.Size = new System.Drawing.Size(199, 192);
             this.panel2.TabIndex = 23;
             // 
             // label8
@@ -208,39 +171,13 @@
             this.label8.Text = "Enter membership\r\ndetails\r\n";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBoxCost
-            // 
-            this.textBoxCost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
-            this.textBoxCost.Font = new System.Drawing.Font("Arial Narrow", 9.75F);
-            this.textBoxCost.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBoxCost.Location = new System.Drawing.Point(45, 161);
-            this.textBoxCost.Name = "textBoxCost";
-            this.textBoxCost.Size = new System.Drawing.Size(129, 22);
-            this.textBoxCost.TabIndex = 5;
-            this.textBoxCost.Text = "Total sum";
-            this.textBoxCost.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // checkBoxTraining
-            // 
-            this.checkBoxTraining.AutoSize = true;
-            this.checkBoxTraining.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.checkBoxTraining.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.checkBoxTraining.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxTraining.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.checkBoxTraining.Location = new System.Drawing.Point(45, 123);
-            this.checkBoxTraining.Name = "checkBoxTraining";
-            this.checkBoxTraining.Size = new System.Drawing.Size(49, 20);
-            this.checkBoxTraining.TabIndex = 6;
-            this.checkBoxTraining.Text = "YES";
-            this.checkBoxTraining.UseVisualStyleBackColor = false;
-            // 
             // UpdateMembership
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(66)))), ((int)(((byte)(97)))));
             this.BackgroundImage = global::PresentationDesktop.Properties.Resources.Background_Dark;
-            this.ClientSize = new System.Drawing.Size(464, 302);
+            this.ClientSize = new System.Drawing.Size(464, 224);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Arial Narrow", 12F);
@@ -271,9 +208,5 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxCost;
-        private System.Windows.Forms.CheckBox checkBoxTraining;
     }
 }

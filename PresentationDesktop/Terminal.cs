@@ -165,21 +165,11 @@ namespace PresentationDesktop
             }
         }
 
-        private void txtUserID_Click(object sender, EventArgs e)
+        
+
+        private void txtUserID_TextChanged(object sender, EventArgs e)
         {
-            if (txtUserID.Text == "Enter user ID here")
-            {
-                txtUserID.Text = "";
-                txtUserID.ForeColor = Color.Black;
-            }
-        }
-        private void txtUserID_Leave(object sender, EventArgs e)
-        {
-            if (txtUserID.Text == "")
-            {
-                txtUserID.Text = "Enter user ID here";
-                txtUserID.ForeColor = Color.Silver;
-            }
+
         }
     }
 }
