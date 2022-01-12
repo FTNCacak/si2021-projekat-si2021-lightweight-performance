@@ -7,3 +7,11 @@ CREATE TABLE [dbo].[Trainings] (
     FOREIGN KEY ([MembershipID]) REFERENCES [dbo].[Memberships] ([MembershipID]),
     FOREIGN KEY ([EmployeeID]) REFERENCES [dbo].[Employees] ([EmployeeID])
 );
+
+INSERT INTO [dbo].[Trainings] ([Appointment], [MembershipID], [EmployeeID], [Type]) VALUES (N'2022-01-06 10:00:00', 15, 5, N'Upper/Lower Body')
+INSERT INTO [dbo].[Trainings] ([Appointment], [MembershipID], [EmployeeID], [Type]) VALUES (N'2022-01-12 23:23:24', 15, 5, N'Upper/Lower Body')
+INSERT INTO [dbo].[Trainings] ([Appointment], [MembershipID], [EmployeeID], [Type]) VALUES (N'2022-01-15 14:00:00', 9, 5, N'Push Pull Legs')
+INSERT INTO [dbo].[Trainings] ([Appointment], [MembershipID], [EmployeeID], [Type]) VALUES (N'2022-01-18 09:00:00', 6, 4, N'Push Pull Legs')
+INSERT INTO [dbo].[Trainings] ([Appointment], [MembershipID], [EmployeeID], [Type]) VALUES (N'2022-01-18 12:00:00', 10, 2, N'Bro Split')
+INSERT INTO [dbo].[Trainings] ([Appointment], [MembershipID], [EmployeeID], [Type]) VALUES (N'2022-01-21 11:00:00', 15, 5, N'Upper/Lower Body')
+INSERT INTO [dbo].[Trainings] ([Appointment], [MembershipID], [EmployeeID], [Type]) VALUES (N'2022-01-25 09:00:00', 6, 5, N'Full Body')
