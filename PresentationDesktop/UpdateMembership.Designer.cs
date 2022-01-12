@@ -37,12 +37,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.checkBoxTraining = new System.Windows.Forms.CheckBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.textBoxCost = new System.Windows.Forms.TextBox();
+            this.checkBoxTraining = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -153,6 +153,33 @@
             this.label4.Text = "Update membership";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label2.Location = new System.Drawing.Point(29, 153);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(103, 38);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Membership\r\nCost:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
+            this.label3.Location = new System.Drawing.Point(29, 124);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(149, 19);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Personal Training:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel2
             // 
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
@@ -181,32 +208,17 @@
             this.label8.Text = "Enter membership\r\ndetails\r\n";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // textBoxCost
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label2.Location = new System.Drawing.Point(29, 153);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 38);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Membership\r\nCost:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.label3.Location = new System.Drawing.Point(29, 124);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 19);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Personal Training:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.textBoxCost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.textBoxCost.Font = new System.Drawing.Font("Arial Narrow", 9.75F);
+            this.textBoxCost.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.textBoxCost.Location = new System.Drawing.Point(45, 161);
+            this.textBoxCost.Name = "textBoxCost";
+            this.textBoxCost.Size = new System.Drawing.Size(129, 22);
+            this.textBoxCost.TabIndex = 5;
+            this.textBoxCost.Text = "Total sum";
+            this.textBoxCost.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // checkBoxTraining
             // 
@@ -221,18 +233,6 @@
             this.checkBoxTraining.TabIndex = 6;
             this.checkBoxTraining.Text = "YES";
             this.checkBoxTraining.UseVisualStyleBackColor = false;
-            // 
-            // textBoxCost
-            // 
-            this.textBoxCost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
-            this.textBoxCost.Font = new System.Drawing.Font("Arial Narrow", 9.75F);
-            this.textBoxCost.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBoxCost.Location = new System.Drawing.Point(45, 161);
-            this.textBoxCost.Name = "textBoxCost";
-            this.textBoxCost.Size = new System.Drawing.Size(129, 22);
-            this.textBoxCost.TabIndex = 5;
-            this.textBoxCost.Text = "Total sum";
-            this.textBoxCost.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // UpdateMembership
             // 
@@ -250,6 +250,7 @@
             this.Name = "UpdateMembership";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.UpdateMembership_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

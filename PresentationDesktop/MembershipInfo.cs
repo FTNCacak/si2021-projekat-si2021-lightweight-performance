@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
@@ -23,7 +24,6 @@ namespace PresentationDesktop
 
         //Corner manipulation
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-
         private static extern IntPtr CreateRoundRectRgn
         (
             int nLeftRect,     // x-coordinate of upper-left corner
@@ -58,6 +58,8 @@ namespace PresentationDesktop
 
         private void MembershipInfo_Load(object sender, EventArgs e)
         {
+            textBoxName.Focus();
+            checkBoxActive.Checked = true;
             UpdateDGV("members");
         }
 
@@ -67,11 +69,13 @@ namespace PresentationDesktop
 
             if (clickCount % 2 == 0)
             {
+                checkBoxActive.Text = "Show active memberships";
                 buttonShow.Text = "Show employees";
                 UpdateDGV("members");
             }
             else
             {
+                checkBoxActive.Text = "Show active employees";
                 buttonShow.Text = "Show members";
                 UpdateDGV("employees");
             }
@@ -79,17 +83,31 @@ namespace PresentationDesktop
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
+            if (!Regex.Match(textBoxName.Text, "^[a-zA-Z]+|[a-zA-Z]+$").Success)
+            {
+                MessageBox.Show("Name is entered incorrectly!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxName.Focus();
+                return;
+            }
+
             try
             {
-                string name = textBoxName.Text;
-                string[] firstLastName = name.Split(' ');
-                List<Membership> list = membershipBusiness.SearchMembership(firstLastName[0], firstLastName[1]);
+                string[] name = textBoxName.Text.Split(' ');
+                List<Membership> list = membershipBusiness.SearchMembership(name[0], name[1]);
                 dataGridView1.DataSource = list;
             }
             catch
             {
-                MessageBox.Show("The field must containt first and last name!", "Error");
+                MessageBox.Show("The field must containt first and last name!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void checkBoxActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (clickCount % 2 == 0)
+                UpdateDGV("members");
+            else
+                UpdateDGV("employees");
         }
 
         private void pictureBoxBack_Click(object sender, EventArgs e)
@@ -106,10 +124,16 @@ namespace PresentationDesktop
                 sqlConnection.Open();
                 SqlDataAdapter adapter;
 
-                if (mode == "members")
-                    adapter = new SqlDataAdapter("SELECT * FROM Memberships", sqlConnection);
+                if(checkBoxActive.Checked)
+                    if (mode == "members")
+                        adapter = new SqlDataAdapter("SELECT * FROM Memberships WHERE ExpirationDate > GetDate()", sqlConnection);
+                    else
+                        adapter = new SqlDataAdapter("SELECT * FROM Employees WHERE ContractExpiration > GetDate()", sqlConnection);
                 else
-                    adapter = new SqlDataAdapter("SELECT * FROM Employees", sqlConnection);
+                    if (mode == "members")
+                        adapter = new SqlDataAdapter("SELECT * FROM Memberships", sqlConnection);
+                    else
+                        adapter = new SqlDataAdapter("SELECT * FROM Employees", sqlConnection);
 
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);

@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
@@ -21,7 +22,6 @@ namespace PresentationDesktop
 
         //Corner manipulation
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-
         private static extern IntPtr CreateRoundRectRgn
         (
             int nLeftRect,     // x-coordinate of upper-left corner
@@ -54,8 +54,48 @@ namespace PresentationDesktop
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
         }
 
+        private void NewMember_Load(object sender, EventArgs e)
+        {
+            txtFirstName.Focus();
+        }
+
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            if (txtFirstName.Text == string.Empty || txtLastName.Text == string.Empty || txtAddress.Text == string.Empty || txtPhoneNumber.Text == string.Empty || dtpBirthdate.Value == DateTime.Now)
+            {
+                MessageBox.Show("All fields except Note must be filled!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Focus();
+                return;
+            }
+
+            if (!Regex.Match(txtFirstName.Text, "^[A-Z][a-z]*$").Success)
+            {
+                MessageBox.Show("First name is entered incorrectly!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Focus();
+                return;
+            }
+
+            if (!Regex.Match(txtLastName.Text, "^[A-Z][a-z]*$").Success)
+            {
+                MessageBox.Show("Last name is entered incorrectly!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtLastName.Focus();
+                return;
+            }
+
+            if (!Regex.Match(txtAddress.Text, @"^([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z])+\s[0-9]+$").Success)
+            {
+                MessageBox.Show("Address is entered incorrectly!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAddress.Focus();
+                return;
+            }
+
+            if (!Regex.Match(txtPhoneNumber.Text, @"^[0][6]\d{1}/[1-9]\d{2,3}-\d{3,4}$").Success)
+            {
+                MessageBox.Show("Phone number is entered incorrectly!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtLastName.Focus();
+                return;
+            }
+
             try
             {
                 Membership member = new Membership
@@ -70,27 +110,24 @@ namespace PresentationDesktop
                     Note = txtNote.Text
                 };
 
-                if (txtFirstName.Text == string.Empty || txtLastName.Text == string.Empty || txtAddress.Text == string.Empty || txtPhoneNumber.Text == string.Empty || dtpBirthdate.Value == DateTime.Now)
+                if (membershipBusiness.InsertMembership(member))
                 {
-                    MessageBox.Show("All fields except Note must be filled!");
+                    MessageBox.Show("New member added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtFirstName.Text = string.Empty;
+                    txtLastName.Text = string.Empty;
+                    txtAddress.Text = string.Empty;
+                    txtPhoneNumber.Text = string.Empty;
+                    dtpBirthdate.Value = DateTime.Now;
+                    txtNote.Text = string.Empty;
                 }
                 else
                 {
-                    if (membershipBusiness.InsertMembership(member))
-                    {
-                        MessageBox.Show("New member added!");
-                        txtFirstName.Text = string.Empty;
-                        txtLastName.Text = string.Empty;
-                        txtAddress.Text = string.Empty;
-                        txtPhoneNumber.Text = string.Empty;
-                        dtpBirthdate.Value = DateTime.Now;
-                        txtNote.Text = string.Empty;
-                    }
+                    MessageBox.Show("Unexpected error!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

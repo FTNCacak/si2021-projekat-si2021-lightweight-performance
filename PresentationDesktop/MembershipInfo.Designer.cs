@@ -162,6 +162,7 @@
             this.checkBoxActive.TabIndex = 22;
             this.checkBoxActive.Text = "Show active memberships";
             this.checkBoxActive.UseVisualStyleBackColor = true;
+            this.checkBoxActive.CheckedChanged += new System.EventHandler(this.checkBoxActive_CheckedChanged);
             // 
             // label3
             // 

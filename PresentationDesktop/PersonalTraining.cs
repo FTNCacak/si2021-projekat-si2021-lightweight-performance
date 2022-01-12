@@ -23,7 +23,6 @@ namespace PresentationDesktop
 
         //Corner manipulation
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-
         private static extern IntPtr CreateRoundRectRgn
         (
             int nLeftRect,     // x-coordinate of upper-left corner
@@ -58,6 +57,8 @@ namespace PresentationDesktop
 
         private void PersonalTraining_Load(object sender, EventArgs e)
         {
+            textBoxMemberID.Focus();
+
             List<Employee> employees = employeeBusiness.GetAllEmployees();
             foreach (Employee employee in employees)
                 comboBoxTrainer.Items.Add(employee.FirstName + " " + employee.LastName);
@@ -79,13 +80,13 @@ namespace PresentationDesktop
 
             if (textBoxMemberID.Text == string.Empty || textBoxPlan.Text == string.Empty || comboBoxTrainer.SelectedIndex == -1 || dtpTraining.Value == DateTime.Now)
             {
-                MessageBox.Show("All fields must be filled!");
+                MessageBox.Show("All fields must be filled!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 if (trainingBusiness.InsertTraining(training))
                 {
-                    MessageBox.Show("New training added!");
+                    MessageBox.Show("New training added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     UpdateDGV();
                     textBoxMemberID.Text = string.Empty;
                     textBoxPlan.Text = string.Empty;
@@ -94,7 +95,7 @@ namespace PresentationDesktop
                 }
                 else
                 {
-                    MessageBox.Show("Error!");
+                    MessageBox.Show("Error!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

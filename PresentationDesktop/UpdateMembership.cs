@@ -21,7 +21,6 @@ namespace PresentationDesktop
 
         //Corner manipulation
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-
         private static extern IntPtr CreateRoundRectRgn
         (
             int nLeftRect,     // x-coordinate of upper-left corner
@@ -54,6 +53,11 @@ namespace PresentationDesktop
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
         }
 
+        private void UpdateMembership_Load(object sender, EventArgs e)
+        {
+            textBoxMemberID.Focus();
+        }
+
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             try
@@ -61,14 +65,14 @@ namespace PresentationDesktop
                 if (membershipBusiness.UpdateMembership(membershipBusiness.GetMembershipByID(Convert.ToInt32(textBoxMemberID.Text)), Convert.ToInt32(textBoxMonths.Text)))
                 {
                     if (Convert.ToInt32(textBoxMonths.Text) == 1)
-                        MessageBox.Show("Cost for 1 month of membership: 2500", "Success");
+                        MessageBox.Show("Cost for 1 month of membership: 2500", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
-                        MessageBox.Show("Cost for " + textBoxMonths.Text + " months of membership: " + Convert.ToInt32(textBoxMonths.Text) * 2500, "Success");
+                        MessageBox.Show("Cost for " + textBoxMonths.Text + " months of membership: " + Convert.ToInt32(textBoxMonths.Text) * 2500, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch
             {
-                MessageBox.Show("A member with that ID doesn't exist!", "Error");
+                MessageBox.Show("A member with that ID doesn't exist!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

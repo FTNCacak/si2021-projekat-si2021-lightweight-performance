@@ -276,6 +276,7 @@
             this.Name = "NewMember";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewMember";
+            this.Load += new System.EventHandler(this.NewMember_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();

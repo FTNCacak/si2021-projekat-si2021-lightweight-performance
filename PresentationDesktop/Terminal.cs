@@ -23,7 +23,6 @@ namespace PresentationDesktop
 
         //Corner manipulation
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-
         private static extern IntPtr CreateRoundRectRgn
         (
             int nLeftRect,     // x-coordinate of upper-left corner
@@ -89,14 +88,14 @@ namespace PresentationDesktop
                 }
                 else
                 {
-                    MessageBox.Show("A member with that ID doesn't exist!", "Error");
+                    MessageBox.Show("A member with that ID doesn't exist!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtUserID.Text = string.Empty;
                     UpdateDGV();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error");
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } 
         }
 

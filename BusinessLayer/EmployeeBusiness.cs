@@ -24,10 +24,8 @@ namespace BusinessLayer
             List<Employee> employees = employeeRepository.GetAllEmployees();
 
             foreach (Employee employee in employees)
-            {
                 if (employee.FirstName == firstName && employee.LastName == lastName)
                     id = employee.EmployeeID;
-            }
 
             return id;
         }
