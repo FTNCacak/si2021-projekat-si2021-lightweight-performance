@@ -100,5 +100,10 @@ namespace PresentationDesktop
             Terminal terminal = new Terminal();
             terminal.Show();
         }
+
+        private void NewMember_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

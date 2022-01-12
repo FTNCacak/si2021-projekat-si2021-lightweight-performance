@@ -32,6 +32,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxMemberID = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Appointment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonConfirm = new System.Windows.Forms.Button();
             this.dtpTraining = new System.Windows.Forms.DateTimePicker();
             this.textBoxPlan = new System.Windows.Forms.TextBox();
@@ -43,12 +49,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBoxBack = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Appointment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
@@ -71,7 +71,7 @@
             this.textBoxMemberID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
             this.textBoxMemberID.Font = new System.Drawing.Font("Arial Narrow", 9.75F);
             this.textBoxMemberID.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBoxMemberID.Location = new System.Drawing.Point(308, 60);
+            this.textBoxMemberID.Location = new System.Drawing.Point(189, 60);
             this.textBoxMemberID.Multiline = true;
             this.textBoxMemberID.Name = "textBoxMemberID";
             this.textBoxMemberID.Size = new System.Drawing.Size(190, 23);
@@ -90,11 +90,53 @@
             this.FirstName1,
             this.LastName1,
             this.Type});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 337);
+            this.dataGridView1.Location = new System.Drawing.Point(454, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(524, 347);
+            this.dataGridView1.Size = new System.Drawing.Size(654, 347);
             this.dataGridView1.TabIndex = 3;
+            // 
+            // Appointment
+            // 
+            this.Appointment.DataPropertyName = "Appointment";
+            this.Appointment.HeaderText = "Appointment";
+            this.Appointment.Name = "Appointment";
+            this.Appointment.ReadOnly = true;
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "Member First Name";
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "LastName";
+            this.LastName.HeaderText = "Member Last Name";
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            // 
+            // FirstName1
+            // 
+            this.FirstName1.DataPropertyName = "FirstName1";
+            this.FirstName1.HeaderText = "Trainer First Name";
+            this.FirstName1.Name = "FirstName1";
+            this.FirstName1.ReadOnly = true;
+            // 
+            // LastName1
+            // 
+            this.LastName1.DataPropertyName = "LastName1";
+            this.LastName1.HeaderText = "Trainer Last Name";
+            this.LastName1.Name = "LastName1";
+            this.LastName1.ReadOnly = true;
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "Training Type";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
             // 
             // buttonConfirm
             // 
@@ -102,7 +144,7 @@
             this.buttonConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonConfirm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.buttonConfirm.Location = new System.Drawing.Point(308, 229);
+            this.buttonConfirm.Location = new System.Drawing.Point(189, 280);
             this.buttonConfirm.Name = "buttonConfirm";
             this.buttonConfirm.Size = new System.Drawing.Size(190, 40);
             this.buttonConfirm.TabIndex = 4;
@@ -115,7 +157,7 @@
             this.dtpTraining.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
             this.dtpTraining.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dtpTraining.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTraining.Location = new System.Drawing.Point(308, 182);
+            this.dtpTraining.Location = new System.Drawing.Point(189, 183);
             this.dtpTraining.Name = "dtpTraining";
             this.dtpTraining.Size = new System.Drawing.Size(190, 26);
             this.dtpTraining.TabIndex = 5;
@@ -125,7 +167,7 @@
             this.textBoxPlan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
             this.textBoxPlan.Font = new System.Drawing.Font("Arial Narrow", 9.75F);
             this.textBoxPlan.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBoxPlan.Location = new System.Drawing.Point(308, 98);
+            this.textBoxPlan.Location = new System.Drawing.Point(189, 102);
             this.textBoxPlan.Name = "textBoxPlan";
             this.textBoxPlan.Size = new System.Drawing.Size(190, 22);
             this.textBoxPlan.TabIndex = 6;
@@ -171,7 +213,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(524, 309);
+            this.panel1.Size = new System.Drawing.Size(426, 347);
             this.panel1.TabIndex = 11;
             // 
             // comboBoxTrainer
@@ -182,7 +224,7 @@
             this.comboBoxTrainer.Font = new System.Drawing.Font("Arial Narrow", 9.75F);
             this.comboBoxTrainer.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.comboBoxTrainer.FormattingEnabled = true;
-            this.comboBoxTrainer.Location = new System.Drawing.Point(308, 139);
+            this.comboBoxTrainer.Location = new System.Drawing.Point(189, 147);
             this.comboBoxTrainer.Name = "comboBoxTrainer";
             this.comboBoxTrainer.Size = new System.Drawing.Size(190, 24);
             this.comboBoxTrainer.TabIndex = 24;
@@ -194,7 +236,7 @@
             this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(211)))), ((int)(((byte)(234)))));
-            this.label8.Location = new System.Drawing.Point(332, 34);
+            this.label8.Location = new System.Drawing.Point(213, 40);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(148, 17);
             this.label8.TabIndex = 23;
@@ -218,7 +260,7 @@
             this.pictureBoxBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.pictureBoxBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxBack.Image = global::PresentationDesktop.Properties.Resources.BackButton;
-            this.pictureBoxBack.Location = new System.Drawing.Point(79, 252);
+            this.pictureBoxBack.Location = new System.Drawing.Point(79, 280);
             this.pictureBoxBack.Name = "pictureBoxBack";
             this.pictureBoxBack.Size = new System.Drawing.Size(53, 40);
             this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -233,54 +275,12 @@
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(211)))), ((int)(((byte)(234)))));
-            this.label4.Location = new System.Drawing.Point(80, 13);
+            this.label4.Location = new System.Drawing.Point(25, 15);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(177, 19);
             this.label4.TabIndex = 21;
             this.label4.Text = "Edit Personal Tranings ";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Appointment
-            // 
-            this.Appointment.DataPropertyName = "Appointment";
-            this.Appointment.HeaderText = "Appointment";
-            this.Appointment.Name = "Appointment";
-            this.Appointment.ReadOnly = true;
-            // 
-            // FirstName
-            // 
-            this.FirstName.DataPropertyName = "FirstName";
-            this.FirstName.HeaderText = "Member First Name";
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            // 
-            // LastName
-            // 
-            this.LastName.DataPropertyName = "LastName";
-            this.LastName.HeaderText = "Member Last Name";
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            // 
-            // FirstName1
-            // 
-            this.FirstName1.DataPropertyName = "FirstName1";
-            this.FirstName1.HeaderText = "Trainer First Name";
-            this.FirstName1.Name = "FirstName1";
-            this.FirstName1.ReadOnly = true;
-            // 
-            // LastName1
-            // 
-            this.LastName1.DataPropertyName = "LastName1";
-            this.LastName1.HeaderText = "Trainer Last Name";
-            this.LastName1.Name = "LastName1";
-            this.LastName1.ReadOnly = true;
-            // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "Training Type";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
             // 
             // PersonalTraining
             // 
@@ -288,7 +288,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(66)))), ((int)(((byte)(97)))));
             this.BackgroundImage = global::PresentationDesktop.Properties.Resources.Background_Dark;
-            this.ClientSize = new System.Drawing.Size(550, 698);
+            this.ClientSize = new System.Drawing.Size(1122, 374);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Arial Narrow", 12F);
