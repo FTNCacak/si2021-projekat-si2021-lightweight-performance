@@ -55,6 +55,7 @@
             // txtFirstName
             // 
             this.txtFirstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.txtFirstName.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtFirstName.Location = new System.Drawing.Point(30, 48);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(211, 20);
@@ -63,6 +64,7 @@
             // txtLastName
             // 
             this.txtLastName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(71)))));
+            this.txtLastName.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtLastName.Location = new System.Drawing.Point(30, 76);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(211, 20);
@@ -71,6 +73,7 @@
             // txtAddress
             // 
             this.txtAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.txtAddress.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtAddress.Location = new System.Drawing.Point(30, 104);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(211, 20);
@@ -79,6 +82,7 @@
             // txtPhoneNumber
             // 
             this.txtPhoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(71)))));
+            this.txtPhoneNumber.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtPhoneNumber.Location = new System.Drawing.Point(30, 132);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(211, 20);
@@ -96,6 +100,7 @@
             // txtNote
             // 
             this.txtNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(71)))));
+            this.txtNote.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtNote.Location = new System.Drawing.Point(30, 188);
             this.txtNote.Multiline = true;
             this.txtNote.Name = "txtNote";
@@ -276,6 +281,7 @@
             this.Name = "NewMember";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewMember";
+            this.Load += new System.EventHandler(this.NewMember_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();

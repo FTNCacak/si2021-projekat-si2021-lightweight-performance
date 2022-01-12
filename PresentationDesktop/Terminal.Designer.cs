@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Terminal));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.CheckinDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpirationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNewMember = new System.Windows.Forms.Button();
             this.btnMembership = new System.Windows.Forms.Button();
             this.btnMemberInfo = new System.Windows.Forms.Button();
@@ -43,6 +47,8 @@
             this.btnPersonalTraining = new System.Windows.Forms.Button();
             this.pictureBoxExit = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.btnEmployee = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.WelcomeText = new System.Windows.Forms.Label();
@@ -50,15 +56,12 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.CheckinDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExpirationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -83,6 +86,34 @@
             this.dataGridView1.Size = new System.Drawing.Size(462, 567);
             this.dataGridView1.TabIndex = 0;
             // 
+            // CheckinDate
+            // 
+            this.CheckinDate.DataPropertyName = "CheckinDate";
+            this.CheckinDate.HeaderText = "Checkin Date";
+            this.CheckinDate.Name = "CheckinDate";
+            this.CheckinDate.ReadOnly = true;
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "First Name";
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "LastName";
+            this.LastName.HeaderText = "Last Name";
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            // 
+            // ExpirationDate
+            // 
+            this.ExpirationDate.DataPropertyName = "ExpirationDate";
+            this.ExpirationDate.HeaderText = "Expiration Date";
+            this.ExpirationDate.Name = "ExpirationDate";
+            this.ExpirationDate.ReadOnly = true;
+            // 
             // btnNewMember
             // 
             this.btnNewMember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(51)))));
@@ -91,7 +122,7 @@
             this.btnNewMember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewMember.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.btnNewMember.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.btnNewMember.Location = new System.Drawing.Point(82, 328);
+            this.btnNewMember.Location = new System.Drawing.Point(82, 285);
             this.btnNewMember.Name = "btnNewMember";
             this.btnNewMember.Size = new System.Drawing.Size(135, 65);
             this.btnNewMember.TabIndex = 0;
@@ -106,7 +137,7 @@
             this.btnMembership.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMembership.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.btnMembership.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.btnMembership.Location = new System.Drawing.Point(82, 470);
+            this.btnMembership.Location = new System.Drawing.Point(82, 427);
             this.btnMembership.Name = "btnMembership";
             this.btnMembership.Size = new System.Drawing.Size(135, 65);
             this.btnMembership.TabIndex = 1;
@@ -123,7 +154,7 @@
             this.btnMemberInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMemberInfo.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.btnMemberInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.btnMemberInfo.Location = new System.Drawing.Point(82, 399);
+            this.btnMemberInfo.Location = new System.Drawing.Point(82, 356);
             this.btnMemberInfo.Name = "btnMemberInfo";
             this.btnMemberInfo.Size = new System.Drawing.Size(135, 65);
             this.btnMemberInfo.TabIndex = 3;
@@ -190,8 +221,8 @@
             this.txtUserID.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtUserID.Size = new System.Drawing.Size(238, 35);
             this.txtUserID.TabIndex = 9;
-            this.txtUserID.Text = "Enter user ID here";
             this.txtUserID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtUserID.TextChanged += new System.EventHandler(this.txtUserID_TextChanged);
             // 
             // btnCheckIn
             // 
@@ -228,7 +259,7 @@
             this.btnPersonalTraining.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPersonalTraining.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.btnPersonalTraining.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.btnPersonalTraining.Location = new System.Drawing.Point(82, 541);
+            this.btnPersonalTraining.Location = new System.Drawing.Point(82, 498);
             this.btnPersonalTraining.Name = "btnPersonalTraining";
             this.btnPersonalTraining.Size = new System.Drawing.Size(135, 65);
             this.btnPersonalTraining.TabIndex = 2;
@@ -254,6 +285,8 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
             this.panel2.BackgroundImage = global::PresentationDesktop.Properties.Resources.Background_Light;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.pictureBox7);
+            this.panel2.Controls.Add(this.btnEmployee);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.WelcomeText);
@@ -272,13 +305,38 @@
             this.panel2.Size = new System.Drawing.Size(234, 701);
             this.panel2.TabIndex = 3;
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::PresentationDesktop.Properties.Resources.NewEmployee;
+            this.pictureBox7.Location = new System.Drawing.Point(18, 569);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(65, 65);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 15;
+            this.pictureBox7.TabStop = false;
+            // 
+            // btnEmployee
+            // 
+            this.btnEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(51)))));
+            this.btnEmployee.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(51)))));
+            this.btnEmployee.FlatAppearance.BorderSize = 0;
+            this.btnEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmployee.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
+            this.btnEmployee.Location = new System.Drawing.Point(82, 569);
+            this.btnEmployee.Name = "btnEmployee";
+            this.btnEmployee.Size = new System.Drawing.Size(135, 65);
+            this.btnEmployee.TabIndex = 14;
+            this.btnEmployee.Text = "New Employee";
+            this.btnEmployee.UseVisualStyleBackColor = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.label2.Location = new System.Drawing.Point(111, 294);
+            this.label2.Location = new System.Drawing.Point(112, 251);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 19);
             this.label2.TabIndex = 13;
@@ -290,7 +348,7 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.label1.Location = new System.Drawing.Point(29, 294);
+            this.label1.Location = new System.Drawing.Point(30, 251);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 19);
             this.label1.TabIndex = 12;
@@ -311,7 +369,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = global::PresentationDesktop.Properties.Resources.Personal;
-            this.pictureBox6.Location = new System.Drawing.Point(18, 541);
+            this.pictureBox6.Location = new System.Drawing.Point(18, 498);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(65, 65);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -321,7 +379,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::PresentationDesktop.Properties.Resources.MemberInfo;
-            this.pictureBox5.Location = new System.Drawing.Point(18, 400);
+            this.pictureBox5.Location = new System.Drawing.Point(18, 357);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(65, 65);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -331,7 +389,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::PresentationDesktop.Properties.Resources.Membership;
-            this.pictureBox4.Location = new System.Drawing.Point(18, 470);
+            this.pictureBox4.Location = new System.Drawing.Point(18, 427);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(65, 65);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -341,40 +399,12 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::PresentationDesktop.Properties.Resources.NewMember;
-            this.pictureBox3.Location = new System.Drawing.Point(18, 328);
+            this.pictureBox3.Location = new System.Drawing.Point(18, 285);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(65, 65);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
-            // 
-            // CheckinDate
-            // 
-            this.CheckinDate.DataPropertyName = "CheckinDate";
-            this.CheckinDate.HeaderText = "Checkin Date";
-            this.CheckinDate.Name = "CheckinDate";
-            this.CheckinDate.ReadOnly = true;
-            // 
-            // FirstName
-            // 
-            this.FirstName.DataPropertyName = "FirstName";
-            this.FirstName.HeaderText = "First Name";
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            // 
-            // LastName
-            // 
-            this.LastName.DataPropertyName = "LastName";
-            this.LastName.HeaderText = "Last Name";
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            // 
-            // ExpirationDate
-            // 
-            this.ExpirationDate.DataPropertyName = "ExpirationDate";
-            this.ExpirationDate.HeaderText = "Expiration Date";
-            this.ExpirationDate.Name = "ExpirationDate";
-            this.ExpirationDate.ReadOnly = true;
             // 
             // Terminal
             // 
@@ -401,6 +431,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -436,6 +467,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExpirationDate;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Button btnEmployee;
     }
 }
 

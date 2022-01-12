@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewEmployee.Designer.cs">
+      <DependentUpon>NewEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="MembershipInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="NewEmployee.resx">
+      <DependentUpon>NewEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,6 +231,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Personal1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewEmployee.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
