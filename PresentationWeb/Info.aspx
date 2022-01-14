@@ -72,6 +72,22 @@ Nullam placerat arcu ex, sed faucibus nisl pretium ac. Class aptent taciti socio
 Suspendisse augue ante, laoreet at pellentesque eget, scelerisque ut erat. Duis eget tristique purus. Etiam placerat enim ac dolor dapibus laoreet. Nunc sed pretium diam, non sodales massa. Nam non vulputate lectus, in accumsan augue. Phasellus cursus, purus aliquet vestibulum accumsan, urna tortor suscipit velit, at malesuada sem orci eu ex. Sed malesuada turpis at sagittis facilisis. Mauris ut nisi et ante tincidunt iaculis. Integer rutrum, quam at vehicula elementum, nibh mauris dignissim eros, commodo mollis nulla odio id tellus. Sed quis arcu quam. Nunc eget posuere lacus. Praesent posuere quam diam, sit amet lacinia diam laoreet non. Aenean efficitur ac orci et posuere. Suspendisse in tristique turpis, in iaculis mi. Quisque enim ex, gravida eu tempor eu, pharetra id augue. Etiam lacinia elit a metus maximus, et accumsan quam feugiat.
 
 Donec vitae metus in nisl viverra volutpat. Curabitur vel vehicula magna. Nunc vehicula pellentesque diam nec varius. Integer dignissim non ipsum quis bibendum. Nulla facilisi. Aliquam ut molestie sapien. Phasellus id lorem eros.</asp:Label>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <h2>Check-Ins:</h2>
+    <hr />
+    <asp:GridView ID="GridViewCHECKIN" runat="server" AutoGenerateColumns="false">
+        <Columns>
+            <asp:BoundField DataField = "CheckinDate" HeaderText="Checkin Date" />
+        </Columns>
+    </asp:GridView>
+
+    <asp:Label ID="lbl1Message" runat="server" Text="Message"></asp:Label>
 
 
+
+
+    <hr />
 </asp:Content>

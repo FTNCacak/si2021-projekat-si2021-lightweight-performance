@@ -20,27 +20,31 @@ namespace PresentationWeb1
         private readonly TrainingBusiness training = new TrainingBusiness();
         protected void Page_Load(object sender, EventArgs e)
         {
+            lbl1Message.Text = "";
+            if (Info.Sid == 0)
+            {
+                Response.Redirect("https://localhost:44363/Login");
+            }
             using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
             {
-                if (Info.Sid == 0)
-                {
-                    Response.Redirect("https://localhost:44363/Login");
-                }
+                
                 sqlConnection.Open();
-                //SqlCommand command = new SqlCommand("SELECT Appointment, Memberships.FirstName, Memberships.LastName, Employees.FirstName, Employees.LastName, Type FROM Trainings, Memberships, Employees WHERE Trainings.MembershipID =@id Trainings.MembershipID = Memberships.MembershipID AND Trainings.EmployeeID = Employees.EmployeeID ORDER BY Appointment ASC", sqlConnection);
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT Appointment, Memberships.FirstName, Memberships.LastName, Employees.FirstName, Employees.LastName, Type FROM Trainings, Memberships, Employees WHERE Trainings.MembershipID = " + Info.Sid + " AND Trainings.MembershipID = Memberships.MembershipID AND Trainings.EmployeeID = Employees.EmployeeID ORDER BY Appointment ASC", sqlConnection);
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT Appointment, CONCAT( Memberships.FirstName,' ', Memberships.LastName) AS 'MemberName', CONCAT( Employees.FirstName,' ', Employees.LastName) AS 'EmployeeName', Type FROM Trainings, Memberships, Employees WHERE Trainings.MembershipID = " + Info.Sid + " AND Trainings.MembershipID = Memberships.MembershipID AND Trainings.EmployeeID = Employees.EmployeeID ORDER BY Appointment ASC", sqlConnection);
 
-                //command.Parameters.AddWithValue("@id",Info.Sid);
 
                 DataTable dt = new DataTable();
                 
                 adapter.Fill(dt);
-                //SqlDataAdapter adapter=command.
 
-                GridViewTRAINING.DataSource = dt;
-                GridViewTRAINING.DataBind();
-
-                //GridViewTRAINING.
+                if (GridViewTRAINING.Rows.Count == 0)
+                {
+                    lbl1Message.Text = "No scheduled trainings!";
+                }
+                else
+                {
+                    GridViewTRAINING.DataSource = dt;
+                    GridViewTRAINING.DataBind();
+                }
             }
 
         }

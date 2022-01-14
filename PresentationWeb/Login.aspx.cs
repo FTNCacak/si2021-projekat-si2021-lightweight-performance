@@ -24,19 +24,29 @@ namespace PresentationWeb1
 
         protected void Btn1LogIn_Click(object sender, EventArgs e)
         {
-            int Id;
+            int Id=0;
             string pass = tb2Pass.Text;
             List<Membership> memberships = business.GetAllMemberships();
-            if (string.Equals("", tb1ID.Text))
+
+            try
             {
-                Lbl3Message.Text = "MemberID is Empty!";
-                Id = 0;
+                if (string.Equals("", tb1ID.Text))
+                {
+                    Lbl3Message.Text = "MemberID is Empty!";
+                    Id = 0;
+                }
+                else
+                {
+                    Id = Convert.ToInt32(tb1ID.Text);
+                }
+
             }
-            else
+            catch(Exception Ex )
             {
-                Id = Convert.ToInt32(tb1ID.Text);
+                Lbl3Message.Text = Ex.Message;
             }
 
+            
 
             foreach(Membership membership in memberships)
             {

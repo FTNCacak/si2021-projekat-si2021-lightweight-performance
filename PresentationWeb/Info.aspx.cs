@@ -9,7 +9,7 @@ using BusinessLayer;
 using Shared.Interfaces;
 using Shared.Models;
 using System.Data.SqlClient;
-
+using System.Data;
 
 namespace PresentationWeb1
 {
@@ -20,6 +20,7 @@ namespace PresentationWeb1
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            lbl1Message.Text = "";
             if (Info.Sid == 0)
             {
                 Response.Redirect("https://localhost:44363/Login");
@@ -41,6 +42,30 @@ namespace PresentationWeb1
                     lbl8ExpirationDate.Text = membership.ExpirationDate.ToString();
                     lbl9Note.Text = membership.Note;
                 }
+            }
+
+            using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
+            {
+                
+                sqlConnection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT CheckinDate FROM Checkins WHERE Checkins.MembershipID = " + Info.Sid + "ORDER BY CheckinDate DESC", sqlConnection);
+
+
+                DataTable dt = new DataTable();
+
+                adapter.Fill(dt);
+
+                if (GridViewCHECKIN.Rows.Count == 0)
+                {
+                    lbl1Message.Text = "No recorded check-ins!";
+                }
+                else
+                {
+                    GridViewCHECKIN.DataSource = dt;
+                    GridViewCHECKIN.DataBind();
+                }
+                
+
             }
         }
     }

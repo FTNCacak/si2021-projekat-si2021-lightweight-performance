@@ -6,12 +6,20 @@
     <asp:GridView ID="GridViewTRAINING" runat="server" Height="139px" Width="764px" AutoGenerateColumns="false">
         <Columns>
             <asp:BoundField DataField = "Appointment" HeaderText="Appointment" />
-            <asp:BoundField DataField = "FirstName" HeaderText="First Name" />
-            <asp:BoundField DataField = "LastName" HeaderText="Last Name" />
-            <asp:BoundField DataField = "FirstName1" HeaderText="First Name" />
-            <asp:BoundField DataField = "LastName1" HeaderText="Last Name" />
+            <asp:BoundField DataField = "MemberName" HeaderText="Member Name" />
+            <asp:BoundField DataField = "EmployeeName" HeaderText="Trainer Name" />
             <asp:BoundField DataField = "Type" HeaderText="Type" />
 
-        </Columns>
+        </Columns>    
     </asp:GridView>
+
+
+    <asp:Label ID="lbl1Message" runat="server" Text="Message"></asp:Label>
+
+
+    <br />
+
+
+
+
 </asp:Content>

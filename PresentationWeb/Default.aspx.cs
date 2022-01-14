@@ -11,7 +11,7 @@ namespace PresentationWeb1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Response.Redirect("https://localhost:44363/Login");
         }
     }
 }
