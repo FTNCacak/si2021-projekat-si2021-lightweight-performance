@@ -18,8 +18,8 @@ namespace PresentationWeb1
         private readonly MembershipBusiness business = new MembershipBusiness();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Info.Sid = 0;
-            Lbl3Message.Text = "";
+            Info.Sid = 0; //Brisanje ID-a predhodno ulogovanog korisnika
+            Lbl3Message.Text = "";//Resetovanje labele u kojoj se pojavljuju poruke
         }
 
         protected void Btn1LogIn_Click(object sender, EventArgs e)
@@ -30,38 +30,55 @@ namespace PresentationWeb1
 
             try
             {
+
                 if (string.Equals("", tb1ID.Text))
                 {
                     Lbl3Message.Text = "MemberID is Empty!";
-                    Id = 0;
+                    if (string.Equals("", tb2Pass.Text))
+                    {
+                        Lbl3Message.Text = "MemberID and Password are Empty!";
+                    }
+                    return;
+                }
+                else if (memberships.FindIndex(m => m.MembershipID == Convert.ToInt32(tb1ID.Text)) == -1) //Provera da li je uneti indeks postojeci
+                {
+
+                        Lbl3Message.Text = "Member with this ID doesn't exist!";
+                        return;
                 }
                 else
                 {
                     Id = Convert.ToInt32(tb1ID.Text);
                 }
 
+
             }
-            catch(Exception Ex )
+            catch
             {
-                Lbl3Message.Text = Ex.Message;
+                Lbl3Message.Text = "Membership ID cannot contain letters!";
             }
 
-            
-
-            foreach(Membership membership in memberships)
+            foreach (Membership membership in memberships)
             {
                 if (membership.MembershipID == Id)
                 {
-                    if (string.Equals(pass, membership.FirstName + membership.LastName + membership.PhoneNumber))
+                    if (string.Equals(pass, membership.FirstName + membership.LastName + membership.PhoneNumber))//Sifra je izgenerisana kombinovanjem Imena, Prezimena i broja telefona
                     {
                         Lbl3Message.Text = "Good";
-                        Info.Sid = membership.MembershipID;
+                        Info.Sid = membership.MembershipID; //Pamcenje ID-a korisnika koji je uneo tacnu sifru
                         Response.Redirect("https://localhost:44363/Info");
 
                     }
                     else
                     {
-                        Lbl3Message.Text = "Wrong password!";
+                        if (string.Equals("", tb2Pass.Text))
+                        {
+                            Lbl3Message.Text = "Password is Empty!";
+                        }
+                        else
+                        {
+                            Lbl3Message.Text = "Wrong password!";
+                        }
                     }
                 }
             }
