@@ -1,5 +1,4 @@
 ﻿using DataLayer;
-using BusinessLayer;
 using Shared.Models;
 using System;
 using System.Collections.Generic;
@@ -10,7 +9,7 @@ namespace PresentationWeb
 {
     public partial class Info : System.Web.UI.Page
     {
-        private readonly MembershipBusiness membershipBusiness = new MembershipBusiness();
+        private readonly MembershipRepository membershipRepository = new MembershipRepository();
         public static int Sid = 0; // Promenljiva koja pamti ID korisnika koji se uspesno ulogovao
 
         protected void Page_Load(object sender, EventArgs e)
@@ -21,7 +20,7 @@ namespace PresentationWeb
                 Response.Redirect("https://localhost:44363/Login"); // Ako se korisnik nije ulogovao, a pokusao je da pristupi kartici, vratice se na Login stranicu
             }
 
-            List<Membership> memberships = membershipBusiness.GetAllMemberships();
+            List<Membership> memberships = membershipRepository.GetAllMemberships();
 
             foreach (Membership membership in memberships)
             {

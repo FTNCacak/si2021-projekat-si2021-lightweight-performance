@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewEmployee));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -38,6 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.txtFirstName = new System.Windows.Forms.TextBox();
@@ -45,8 +47,6 @@
             this.txtPersonalNumber = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.dtpBirthdate = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
             this.panel3.SuspendLayout();
@@ -67,6 +67,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(247, 306);
             this.panel1.TabIndex = 18;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
+            this.label7.Location = new System.Drawing.Point(61, 154);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(128, 19);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Phone number:";
             // 
             // label5
             // 
@@ -172,6 +184,15 @@
             this.panel3.Size = new System.Drawing.Size(277, 306);
             this.panel3.TabIndex = 20;
             // 
+            // txtPhoneNumber
+            // 
+            this.txtPhoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(71)))));
+            this.txtPhoneNumber.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtPhoneNumber.Location = new System.Drawing.Point(30, 156);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(211, 20);
+            this.txtPhoneNumber.TabIndex = 21;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -246,27 +267,6 @@
             this.dtpBirthdate.Size = new System.Drawing.Size(211, 20);
             this.dtpBirthdate.TabIndex = 5;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.label7.Location = new System.Drawing.Point(61, 154);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(128, 19);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "Phone number:";
-            // 
-            // txtPhoneNumber
-            // 
-            this.txtPhoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(71)))));
-            this.txtPhoneNumber.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtPhoneNumber.Location = new System.Drawing.Point(30, 156);
-            this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(211, 20);
-            this.txtPhoneNumber.TabIndex = 21;
-            // 
             // NewEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,6 +278,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewEmployee";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.NewEmployee_Load);
             this.panel1.ResumeLayout(false);

@@ -1,4 +1,4 @@
-﻿using BusinessLayer;
+﻿using DataLayer;
 using Shared.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ namespace PresentationWeb
 {
     public partial class Login : System.Web.UI.Page
     {
-        private readonly MembershipBusiness membershipBusiness = new MembershipBusiness();
+        private readonly MembershipRepository membershipRepository = new MembershipRepository();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,7 +19,7 @@ namespace PresentationWeb
         {
             int Id = 0;
             string pass = tb2Pass.Text;
-            List<Membership> memberships = membershipBusiness.GetAllMemberships();
+            List<Membership> memberships = membershipRepository.GetAllMemberships();
 
             try
             {

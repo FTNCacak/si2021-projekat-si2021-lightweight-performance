@@ -8,7 +8,12 @@ namespace BusinessLayer
 {
     public class MembershipBusiness : IMembershipBusiness
     {
-        private readonly MembershipRepository membershipRepository = new MembershipRepository();
+        private readonly IMembershipRepository membershipRepository;
+
+        public MembershipBusiness(IMembershipRepository membershipRepository)
+        {
+            this.membershipRepository = membershipRepository;
+        }
 
         public List<Membership> SearchMembership(string firstName, string lastName)
         {

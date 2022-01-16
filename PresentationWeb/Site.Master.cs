@@ -1,4 +1,4 @@
-﻿using BusinessLayer;
+﻿using DataLayer;
 using Shared.Models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ namespace PresentationWeb
 {
     public partial class SiteMaster : MasterPage
     {
-        private readonly MembershipBusiness membershipBusiness = new MembershipBusiness();
+        private readonly MembershipRepository membershipRepository = new MembershipRepository();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -16,7 +16,7 @@ namespace PresentationWeb
             {
                 Login.InnerText = "Log out"; // Ako je korisnik ulogovan tekst na dugmetu "Log in" se menja u "Log out" 
 
-                List<Membership> memberships = membershipBusiness.GetAllMemberships();
+                List<Membership> memberships = membershipRepository.GetAllMemberships();
 
                 foreach (Membership membership in memberships)
                 {
