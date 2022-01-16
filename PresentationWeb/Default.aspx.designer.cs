@@ -8,9 +8,9 @@
 //------------------------------------------------------------------------------
 
 
-namespace PresentationWeb1
+namespace PresentationWeb
 {
-    public partial class _Default
+    public partial class Default
     {
     }
 }

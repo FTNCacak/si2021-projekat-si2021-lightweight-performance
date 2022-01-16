@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PresentationWeb1 {
+namespace PresentationWeb {
     
     
     public partial class Site_Mobile {

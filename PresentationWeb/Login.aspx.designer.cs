@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PresentationWeb1
+namespace PresentationWeb
 {
 
 

@@ -1,4 +1,5 @@
-﻿using Shared.Interfaces;
+﻿using DataLayer;
+using Shared.Interfaces;
 using Shared.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +8,7 @@ namespace BusinessLayer
 {
     public class MembershipBusiness : IMembershipBusiness
     {
-        private readonly IMembershipRepository membershipRepository;
-
-        public MembershipBusiness(IMembershipRepository membershipRepository)
-        {
-            this.membershipRepository = membershipRepository;
-        }
+        private readonly MembershipRepository membershipRepository = new MembershipRepository();
 
         public List<Membership> SearchMembership(string firstName, string lastName)
         {

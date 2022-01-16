@@ -4,7 +4,7 @@ using System.Web;
 using System.Web.Routing;
 using Microsoft.AspNet.FriendlyUrls;
 
-namespace PresentationWeb1
+namespace PresentationWeb
 {
     public static class RouteConfig
     {
