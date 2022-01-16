@@ -175,9 +175,9 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
             this.label7.Location = new System.Drawing.Point(61, 183);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 19);
+            this.label7.Size = new System.Drawing.Size(127, 19);
             this.label7.TabIndex = 13;
-            this.label7.Text = "Note:";
+            this.label7.Text = "Note (optional):";
             // 
             // panel1
             // 
@@ -220,7 +220,7 @@
             this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxBack.TabIndex = 18;
             this.pictureBoxBack.TabStop = false;
-            this.pictureBoxBack.Click += new System.EventHandler(this.pictureBoxBack_Click);
+            this.pictureBoxBack.Click += new System.EventHandler(this.PictureBoxBack_Click);
             // 
             // panel3
             // 
@@ -265,7 +265,7 @@
             this.btnConfirm.TabIndex = 14;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = false;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            this.btnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
             // 
             // NewMember
             // 

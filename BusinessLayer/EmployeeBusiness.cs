@@ -1,21 +1,22 @@
-﻿using DataLayer;
-using Shared.Interfaces;
+﻿using Shared.Interfaces;
 using Shared.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
     public class EmployeeBusiness : IEmployeeBusiness
     {
-        private readonly EmployeeRepository employeeRepository = new EmployeeRepository();
+        private readonly IEmployeeRepository employeeRepository;
 
-        public List<Employee> GetAllEmployees()
+        public EmployeeBusiness(IEmployeeRepository employeeRepository)
         {
-            return employeeRepository.GetAllEmployees().ToList();
+            this.employeeRepository = employeeRepository;
+        }
+
+        public List<Employee> SearchEmployee(string firstName, string lastName)
+        {
+            return employeeRepository.GetAllEmployees().Where(employee => employee.FirstName.ToUpper().Equals(firstName.ToUpper()) && employee.LastName.ToUpper().Equals(lastName.ToUpper())).ToList();
         }
 
         public int GetEmployeeID(string firstName, string lastName)
@@ -28,6 +29,21 @@ namespace BusinessLayer
                     id = employee.EmployeeID;
 
             return id;
+        }
+
+        public List<Employee> GetAllEmployees()
+        {
+            return employeeRepository.GetAllEmployees().ToList();
+        }
+
+        public bool InsertEmployee(Employee employee)
+        {
+            return employeeRepository.InsertEmployee(employee) != 0;
+        }
+
+        public bool UpdateEmployeeDetails(Employee employee)
+        {
+            return employeeRepository.UpdateEmployeeDetails(employee) != 0;
         }
     }
 }

@@ -61,17 +61,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditData.Designer.cs">
+      <DependentUpon>EditData.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NewEmployee.Designer.cs">
       <DependentUpon>NewEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="MembershipInfo.cs">
+    <Compile Include="ViewData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MembershipInfo.Designer.cs">
-      <DependentUpon>MembershipInfo.cs</DependentUpon>
+    <Compile Include="ViewData.Designer.cs">
+      <DependentUpon>ViewData.cs</DependentUpon>
     </Compile>
     <Compile Include="PersonalTraining.cs">
       <SubType>Form</SubType>
@@ -79,6 +85,7 @@
     <Compile Include="PersonalTraining.Designer.cs">
       <DependentUpon>PersonalTraining.cs</DependentUpon>
     </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="UpdateMembership.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,8 +115,10 @@
     <Compile Include="Terminal.Designer.cs">
       <DependentUpon>Terminal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EditData.resx">
+      <DependentUpon>EditData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NewEmployee.resx">
       <DependentUpon>NewEmployee.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,8 +128,8 @@
     <EmbeddedResource Include="UpdateMembership.resx">
       <DependentUpon>UpdateMembership.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MembershipInfo.resx">
-      <DependentUpon>MembershipInfo.cs</DependentUpon>
+    <EmbeddedResource Include="ViewData.resx">
+      <DependentUpon>ViewData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewMember.resx">
       <DependentUpon>NewMember.cs</DependentUpon>

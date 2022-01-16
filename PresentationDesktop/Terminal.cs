@@ -1,27 +1,23 @@
 ﻿using DataLayer;
-using BusinessLayer;
 using Shared.Interfaces;
 using Shared.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace PresentationDesktop
 {
     public partial class Terminal : Form
     {
-        private readonly CheckinBusiness checkinBusiness = new CheckinBusiness();
-        private readonly MembershipBusiness membershipBusiness = new MembershipBusiness();
+        private readonly ICheckinBusiness checkinBusiness;
+        private readonly IMembershipBusiness membershipBusiness;
+        private readonly string user = "owner"; // inicijalizovano u slučaju da programer želi da preskoči Login formu
 
-        //Corner manipulation
+        // zaobljavanje ivica prozora
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
@@ -33,7 +29,7 @@ namespace PresentationDesktop
             int nHeightEllipse // width of ellipse
         );
 
-        //Drag
+        // omogućava pomeranje prozora aplikacije
         protected override void WndProc(ref Message m)
         {
             switch (m.Msg)
@@ -49,7 +45,19 @@ namespace PresentationDesktop
         }
 
         public Terminal()
-        {            
+        {
+            checkinBusiness = (ICheckinBusiness)Program.ServiceProvider.GetService(typeof(ICheckinBusiness));
+            membershipBusiness = (IMembershipBusiness)Program.ServiceProvider.GetService(typeof(IMembershipBusiness));
+            InitializeComponent();
+            FormBorderStyle = FormBorderStyle.None;
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
+        }
+
+        public Terminal(string user)
+        {
+            checkinBusiness = (ICheckinBusiness)Program.ServiceProvider.GetService(typeof(ICheckinBusiness));
+            membershipBusiness = (IMembershipBusiness)Program.ServiceProvider.GetService(typeof(IMembershipBusiness));
+            this.user = user;
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
@@ -57,10 +65,24 @@ namespace PresentationDesktop
 
         private void Terminal_Load(object sender, EventArgs e)
         {
+            // Admin korisnici ne treba da vide New Employee dugme
+            if (user == "owner")
+            {
+                btnNewEmployee.Visible = true;
+                pictureBoxNewEmployee.Visible = true;
+                labelUser.Text += "Owner";
+            }
+            else
+            {
+                btnNewEmployee.Visible = false;
+                pictureBoxNewEmployee.Visible = false;
+                labelUser.Text += "Admin";
+            }
+
             UpdateDGV();
         }
 
-        private void btnCheckIn_Click(object sender, EventArgs e)
+        private void BtnCheckIn_Click(object sender, EventArgs e)
         {
             try
             {
@@ -74,79 +96,80 @@ namespace PresentationDesktop
 
                 List<Membership> list = membershipBusiness.GetAllMemberships();
 
+                // proverava da li se uneseni ID poklapa sa nekim iz baze podataka
                 foreach (Membership membership in list)
                     if (membership.MembershipID == Convert.ToInt32(txtUserID.Text))
                         match = true;
 
-                if (match)
-                {
-                    if (checkinBusiness.InsertCheckin(checkin))
-                    {
-                        txtUserID.Text = string.Empty;
-                        UpdateDGV();
-                    }
-                }
-                else
+                if (!match)
                 {
                     MessageBox.Show("A member with that ID doesn't exist!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtUserID.Text = string.Empty;
                     UpdateDGV();
+                    return;
+                }
+
+                if (checkinBusiness.InsertCheckin(checkin))
+                {
+                    txtUserID.Text = string.Empty;
+                    UpdateDGV();
+                }
+                else
+                {
+                    MessageBox.Show("Unexpected error!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } 
-        }
-
-        private void buttonFilter_Click(object sender, EventArgs e)
-        {
-            using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
-            {
-                sqlConnection.Open();
-
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT CheckinDate, FirstName, LastName, ExpirationDate FROM Checkins, Memberships WHERE Appointment = " + dateTimePicker1.Value + " AND Checkins.MembershipID = Memberships.MembershipID ORDER BY CheckinDate DESC", sqlConnection);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-
-                dataGridView1.AutoGenerateColumns = false;
-                dataGridView1.DataSource = dt;
-                dataGridView1.AutoResizeColumns();
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
         }
 
-        private void btnNewMember_Click(object sender, EventArgs e)
+        private void BtnNewMember_Click(object sender, EventArgs e)
         {
             Hide();
             NewMember newMember = new NewMember();
             newMember.Show();
         }
 
-        private void btnMembership_Click(object sender, EventArgs e)
+        private void BtnNewEmployee_Click(object sender, EventArgs e)
         {
             Hide();
-            UpdateMembership membership = new UpdateMembership();
-            membership.Show();
+            NewEmployee newEmployee = new NewEmployee();
+            newEmployee.Show();
         }
 
-        private void btnPersonalTraining_Click(object sender, EventArgs e)
+        private void BtnMembership_Click(object sender, EventArgs e)
+        {
+            Hide();
+            UpdateMembership updateMembership = new UpdateMembership();
+            updateMembership.Show();
+        }
+
+        private void BtnPersonalTraining_Click(object sender, EventArgs e)
         {
             Hide();
             PersonalTraining personalTraining = new PersonalTraining();
             personalTraining.Show();
         }
 
-        private void btnMemberInfo_Click(object sender, EventArgs e)
+        private void BtnMemberInfo_Click(object sender, EventArgs e)
         {
             Hide();
-            MembershipInfo membershipInfo = new MembershipInfo();
+            ViewData membershipInfo = new ViewData();
             membershipInfo.Show();
         }
 
-        private void pictureBoxExit_Click(object sender, EventArgs e)
+        private void PictureBoxExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void TxtUserID_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Enter taster kao prečica za brži unos
+            if (e.KeyCode == Keys.Enter)
+                btnCheckIn.PerformClick();
         }
 
         private void UpdateDGV()
@@ -155,21 +178,23 @@ namespace PresentationDesktop
             {
                 sqlConnection.Open();
 
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT CheckinDate, FirstName, LastName, ExpirationDate FROM Checkins, Memberships WHERE Checkins.MembershipID = Memberships.MembershipID ORDER BY CheckinDate DESC", sqlConnection);
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT CheckinDate AS 'Check-in Time', Checkins.MembershipID, CONCAT(FirstName, ' ', LastName) AS 'Name', ExpirationDate FROM Checkins, Memberships WHERE Checkins.MembershipID = Memberships.MembershipID ORDER BY CheckinDate DESC", sqlConnection);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
 
                 dataGridView1.DataSource = dt;
                 dataGridView1.AutoResizeColumns();
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridView1.Columns["Check-in Time"].DisplayIndex = 0;
+                dataGridView1.Columns["Check-in Time"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView1.Columns["Check-in Time"].DefaultCellStyle.Format = "dd.MM.yyyy HH:mm:ss";
+                dataGridView1.Columns["MembershipID"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView1.Columns["MembershipID"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dataGridView1.Columns["Name"].DisplayIndex = 3;
+                dataGridView1.Columns["CheckinDate"].Visible = false;
+                dataGridView1.Columns["FirstName"].Visible = false;
+                dataGridView1.Columns["LastName"].Visible = false;
             }
-        }
-
-        
-
-        private void txtUserID_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

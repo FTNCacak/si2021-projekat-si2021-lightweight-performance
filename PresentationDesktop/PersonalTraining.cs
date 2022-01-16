@@ -1,27 +1,22 @@
 ﻿using DataLayer;
-using BusinessLayer;
 using Shared.Interfaces;
 using Shared.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationDesktop
 {
     public partial class PersonalTraining : Form
     {
-        private readonly EmployeeBusiness employeeBusiness = new EmployeeBusiness();
-        private readonly TrainingBusiness trainingBusiness = new TrainingBusiness();
+        private readonly IEmployeeBusiness employeeBusiness;
+        private readonly ITrainingBusiness trainingBusiness;
 
-        //Corner manipulation
+        // zaobljavanje ivica prozora
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
@@ -33,7 +28,7 @@ namespace PresentationDesktop
             int nHeightEllipse // width of ellipse
         );
 
-        //Drag
+        // omogućava pomeranje prozora aplikacije
         protected override void WndProc(ref Message m)
         {
             switch (m.Msg)
@@ -50,6 +45,8 @@ namespace PresentationDesktop
 
         public PersonalTraining()
         {
+            employeeBusiness = (IEmployeeBusiness)Program.ServiceProvider.GetService(typeof(IEmployeeBusiness));
+            trainingBusiness = (ITrainingBusiness)Program.ServiceProvider.GetService(typeof(ITrainingBusiness));
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
@@ -59,6 +56,7 @@ namespace PresentationDesktop
         {
             textBoxMemberID.Focus();
 
+            // dodaje zaposlene kao izbor trenera u ComboBox kontrolu
             List<Employee> employees = employeeBusiness.GetAllEmployees();
             foreach (Employee employee in employees)
                 comboBoxTrainer.Items.Add(employee.FirstName + " " + employee.LastName);
@@ -66,27 +64,30 @@ namespace PresentationDesktop
             UpdateDGV();
         }
 
-        private void buttonConfirm_Click(object sender, EventArgs e)
+        private void ButtonConfirm_Click(object sender, EventArgs e)
         {
+            // uneto ime i prezime razdvaja na 2 dela za pretraživanje u bazi podataka
             string[] name = comboBoxTrainer.SelectedItem.ToString().Split(' ');
-
-            Training training = new Training()
-            {
-                Appointment = dtpTraining.Value,
-                MembershipID = Convert.ToInt32(textBoxMemberID.Text),
-                EmployeeID = employeeBusiness.GetEmployeeID(name[0], name[1]),
-                Type = textBoxPlan.Text,
-            };
 
             if (textBoxMemberID.Text == string.Empty || textBoxPlan.Text == string.Empty || comboBoxTrainer.SelectedIndex == -1 || dtpTraining.Value == DateTime.Now)
             {
                 MessageBox.Show("All fields must be filled!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
+
+            try
             {
+                Training training = new Training()
+                {
+                    Appointment = dtpTraining.Value,
+                    MembershipID = Convert.ToInt32(textBoxMemberID.Text),
+                    EmployeeID = employeeBusiness.GetEmployeeID(name[0], name[1]),
+                    Type = textBoxPlan.Text,
+                };
+
                 if (trainingBusiness.InsertTraining(training))
                 {
-                    MessageBox.Show("New training added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("New training added!\nCost: 500 din", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     UpdateDGV();
                     textBoxMemberID.Text = string.Empty;
                     textBoxPlan.Text = string.Empty;
@@ -95,12 +96,16 @@ namespace PresentationDesktop
                 }
                 else
                 {
-                    MessageBox.Show("Error!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Unexpected error!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void pictureBoxBack_Click(object sender, EventArgs e)
+        private void PictureBoxBack_Click(object sender, EventArgs e)
         {
             Hide();
             Terminal terminal = new Terminal();
@@ -113,12 +118,13 @@ namespace PresentationDesktop
             {
                 sqlConnection.Open();
 
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT Appointment, Memberships.FirstName, Memberships.LastName, Employees.FirstName, Employees.LastName, Type FROM Trainings, Memberships, Employees WHERE Appointment > GetDate() AND Trainings.MembershipID = Memberships.MembershipID AND Trainings.EmployeeID = Employees.EmployeeID ORDER BY Appointment ASC", sqlConnection);
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT Appointment, CONCAT(Memberships.FirstName, ' ', Memberships.LastName) AS 'Member Name', CONCAT(Employees.FirstName, ' ', Employees.LastName) AS 'Trainer Name', Type FROM Trainings, Memberships, Employees WHERE Appointment > GetDate() AND Trainings.MembershipID = Memberships.MembershipID AND Trainings.EmployeeID = Employees.EmployeeID ORDER BY Appointment ASC", sqlConnection);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
 
-                dataGridView1.AutoGenerateColumns = false;
                 dataGridView1.DataSource = dt;
+                dataGridView1.AutoResizeColumns();
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
         }
     }

@@ -15,7 +15,8 @@ namespace PresentationWeb1
 {
     public partial class Login : System.Web.UI.Page
     {
-        private readonly MembershipBusiness business = new MembershipBusiness();
+        private readonly IMembershipBusiness membershipBusiness;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Info.Sid = 0;
@@ -26,7 +27,7 @@ namespace PresentationWeb1
         {
             int Id;
             string pass = tb2Pass.Text;
-            List<Membership> memberships = business.GetAllMemberships();
+            List<Membership> memberships = membershipBusiness.GetAllMemberships();
             if (string.Equals("", tb1ID.Text))
             {
                 Lbl3Message.Text = "MemberID is Empty!";

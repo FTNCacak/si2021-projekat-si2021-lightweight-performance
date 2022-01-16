@@ -1,9 +1,5 @@
 ﻿using Shared.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shared.Interfaces
 {
@@ -12,6 +8,6 @@ namespace Shared.Interfaces
         List<Membership> GetAllMemberships();
         int InsertMembership(Membership membership);
         int UpdateMembership(Membership membership, int number);
-        int DeleteMembership(int MembershipID);
+        int UpdateMembershipDetails(Membership membership);
     }
 }

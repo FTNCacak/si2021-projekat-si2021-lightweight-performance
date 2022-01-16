@@ -1,21 +1,15 @@
-﻿using DataLayer;
-using Shared.Interfaces;
+﻿using Shared.Interfaces;
 using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
     public class CheckinBusiness : ICheckinBusiness
     {
-        private readonly CheckinRepository checkinRepository = new CheckinRepository();
+        private readonly ICheckinRepository checkinRepository;
 
-        public List<Checkin> GetAllCheckins()
+        public CheckinBusiness(ICheckinRepository checkinRepository)
         {
-            return checkinRepository.GetAllCheckins();
+            this.checkinRepository = checkinRepository;
         }
 
         public bool InsertCheckin(Checkin checkin)

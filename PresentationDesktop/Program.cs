@@ -3,54 +3,36 @@ using DataLayer;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationDesktop
 {
-    static class Program
+    public static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+        public static IServiceProvider ServiceProvider { get; set; }
+
+        static void ConfigureServices()
+        {
+            var services = new ServiceCollection();
+            services.AddTransient<ICheckinBusiness, CheckinBusiness>();
+            services.AddTransient<ICheckinRepository, CheckinRepository>();
+            services.AddTransient<IEmployeeBusiness, EmployeeBusiness>();
+            services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+            services.AddTransient<IMembershipBusiness, MembershipBusiness>();
+            services.AddTransient<IMembershipRepository, MembershipRepository>();
+            services.AddTransient<ITrainingBusiness, TrainingBusiness>();
+            services.AddTransient<ITrainingRepository, TrainingRepository>();
+            ServiceProvider = services.BuildServiceProvider();
+        }
+
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
-        }
 
-        /*
-            var services = new ServiceCollection();
-            ConfigureServices(services);
-
-            using (ServiceProvider serviceProvider = services.BuildServiceProvider())
-            {
-                var login = serviceProvider.GetRequiredService<Login>();
-                Application.Run(login);
-            }
+            ConfigureServices();
+            Application.Run(new Terminal());
         }
-
-        private static void ConfigureServices(ServiceCollection services)
-        {
-            services.AddScoped<ICheckinBusiness, CheckinBusiness>();
-            services.AddScoped<ICheckinRepository, CheckinRepository>();
-            services.AddScoped<IEmployeeBusiness, EmployeeBusiness>();
-            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-            services.AddScoped<IMembershipBusiness, MembershipBusiness>();
-            services.AddScoped<IMembershipRepository, MembershipRepository>();
-            services.AddScoped<ITrainingBusiness, TrainingBusiness>();
-            services.AddScoped<ITrainingRepository, TrainingRepository>();
-            services.AddScoped<Login>();
-            services.AddScoped<Terminal>();
-            services.AddScoped<NewMember>();
-            services.AddScoped<UpdateMembership>();
-            services.AddScoped<PersonalTraining>();
-            services.AddScoped<MembershipInfo>();
-        }
-        */
     }
 }

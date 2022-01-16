@@ -1,11 +1,7 @@
 ﻿using Shared.Interfaces;
 using Shared.Models;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataLayer
 {
@@ -68,40 +64,21 @@ namespace DataLayer
             }
         }
 
-        //izmeniti metodu ako se bude koristila
-        public int UpdateEmployee(Employee employee)
+        public int UpdateEmployeeDetails(Employee employee)
         {
             using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
             {
                 sqlConnection.Open();
 
-                string sqlQuery = "UPDATE Employees SET PersonalNumber = @PersonalNumber, FirstName = @FirstName, LastName = @LastName, EmploymentDate = @EmploymentDate, ContractExpiration = @ContractExpiration, Address = @Address, PhoneNumber = @PhoneNumber, BirthDate = @BirthDate";
+                string sqlQuery = "UPDATE Employees SET FirstName = @FirstName, LastName = @LastName, Address = @Address, PhoneNumber = @PhoneNumber, PersonalNumber = @PersonalNumber WHERE EmployeeID = @EmployeeID";
 
                 SqlCommand command = new SqlCommand(sqlQuery, sqlConnection);
-                command.Parameters.AddWithValue("@PersonalNumber", employee.PersonalNumber);
+                command.Parameters.AddWithValue("@EmployeeID", employee.EmployeeID);
                 command.Parameters.AddWithValue("@FirstName", employee.FirstName);
                 command.Parameters.AddWithValue("@LastName", employee.LastName);
-                command.Parameters.AddWithValue("@EmploymentDate", employee.EmploymentDate);
-                command.Parameters.AddWithValue("@ContractExpiration", employee.ContractExpiration);
                 command.Parameters.AddWithValue("@Address", employee.Address);
                 command.Parameters.AddWithValue("@PhoneNumber", employee.PhoneNumber);
-                command.Parameters.AddWithValue("@BirthDate", employee.BirthDate);
-
-                return command.ExecuteNonQuery();
-            }
-        }
-
-        public int DeleteEmployee(int EmployeeID)
-        {
-            using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
-            {
-                sqlConnection.Open();
-
-                SqlCommand command = new SqlCommand
-                {
-                    Connection = sqlConnection,
-                    CommandText = string.Format("DELETE FROM Employees WHERE EmployeeID = {0}", EmployeeID)
-                };
+                command.Parameters.AddWithValue("@PersonalNumber", employee.PersonalNumber);
 
                 return command.ExecuteNonQuery();
             }

@@ -89,7 +89,7 @@
             this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxBack.TabIndex = 20;
             this.pictureBoxBack.TabStop = false;
-            this.pictureBoxBack.Click += new System.EventHandler(this.pictureBoxBack_Click);
+            this.pictureBoxBack.Click += new System.EventHandler(this.PictureBoxBack_Click);
             // 
             // btnConfirm
             // 
@@ -104,7 +104,7 @@
             this.btnConfirm.TabIndex = 21;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = false;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            this.btnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
             // 
             // panel1
             // 

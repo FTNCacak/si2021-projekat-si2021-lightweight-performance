@@ -1,17 +1,5 @@
-﻿using DataLayer;
-using BusinessLayer;
-using Shared.Interfaces;
-using Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
 
 namespace PresentationDesktop
 {
@@ -27,12 +15,22 @@ namespace PresentationDesktop
             lblError.Text = string.Empty;
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void BtnLogin_Click(object sender, EventArgs e)
         {
-            if(textBoxUser.Text == "admin" && textBoxPass.Text == "12345")
+            if (textBoxUser.Text == "admin" && textBoxPass.Text == "12345")
             {
                 Hide();
-                Terminal terminal = new Terminal();
+                Terminal terminal = new Terminal(textBoxUser.Text);
+                terminal.Show();
+
+                lblError.Text = string.Empty;
+                textBoxUser.Text = string.Empty;
+                textBoxPass.Text = string.Empty;
+            }
+            else if (textBoxUser.Text == "owner" && textBoxPass.Text == "12345")
+            {
+                Hide();
+                Terminal terminal = new Terminal(textBoxUser.Text);
                 terminal.Show();
 
                 lblError.Text = string.Empty;
@@ -47,7 +45,7 @@ namespace PresentationDesktop
             }
         }
 
-        private void pictureBoxExit_Click(object sender, EventArgs e)
+        private void PictureBoxExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

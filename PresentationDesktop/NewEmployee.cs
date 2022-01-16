@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using Shared.Interfaces;
+using Shared.Models;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
@@ -13,9 +10,10 @@ namespace PresentationDesktop
 {
     public partial class NewEmployee : Form
     {
-        //Corner manipulation
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private readonly IEmployeeBusiness employeeBusiness;
 
+        // zaobljavanje ivica prozora
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
             int nLeftRect,     // x-coordinate of upper-left corner
@@ -26,7 +24,7 @@ namespace PresentationDesktop
             int nHeightEllipse // width of ellipse
         );
 
-        //Drag
+        // omogućava pomeranje prozora aplikacije
         protected override void WndProc(ref Message m)
         {
             switch (m.Msg)
@@ -43,21 +41,94 @@ namespace PresentationDesktop
 
         public NewEmployee()
         {
+            employeeBusiness = (IEmployeeBusiness)Program.ServiceProvider.GetService(typeof(IEmployeeBusiness));
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
         }
 
-        private void pictureBoxBack_Click(object sender, EventArgs e)
+        private void NewEmployee_Load(object sender, EventArgs e)
+        {
+            txtFirstName.Focus();
+        }
+
+        private void BtnConfirm_Click(object sender, EventArgs e)
+        {
+            if (txtFirstName.Text == string.Empty || txtLastName.Text == string.Empty || txtPersonalNumber.Text == string.Empty || txtAddress.Text == string.Empty || txtPhoneNumber.Text == string.Empty || dtpBirthdate.Value == DateTime.Now)
+            {
+                MessageBox.Show("All fields must be filled!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!Regex.Match(txtFirstName.Text, @"^[a-zA-Z]+$").Success)
+            {
+                MessageBox.Show("First name can only contain letters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFirstName.Focus();
+                return;
+            }
+
+            if (!Regex.Match(txtLastName.Text, @"^[a-zA-Z]+$").Success)
+            {
+                MessageBox.Show("Last name can only contain letters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtLastName.Focus();
+                return;
+            }
+
+            if (!Regex.Match(txtPersonalNumber.Text, @"^(\d{13})?$").Success)
+            {
+                MessageBox.Show("Personal number must be a 13 digit number!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPersonalNumber.Focus();
+                return;
+            }
+
+            if (!Regex.Match(txtPhoneNumber.Text, @"^(\d{10})?$").Success)
+            {
+                MessageBox.Show("Phone number must be a 10 digit number!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtLastName.Focus();
+                return;
+            }
+
+            try
+            {
+                Employee employee = new Employee
+                {
+                    FirstName = txtFirstName.Text,
+                    LastName = txtLastName.Text,
+                    PersonalNumber = txtPersonalNumber.Text,
+                    Address = txtAddress.Text,
+                    PhoneNumber = txtPhoneNumber.Text,
+                    BirthDate = dtpBirthdate.Value,
+                    EmploymentDate = DateTime.Now,
+                    ContractExpiration = DateTime.Now.AddYears(2),
+                };
+
+                if (employeeBusiness.InsertEmployee(employee))
+                {
+                    MessageBox.Show("New employee added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtFirstName.Text = string.Empty;
+                    txtLastName.Text = string.Empty;
+                    txtPersonalNumber.Text = string.Empty;
+                    txtAddress.Text = string.Empty;
+                    txtPhoneNumber.Text = string.Empty;
+                    dtpBirthdate.Value = DateTime.Now;
+                    txtFirstName.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Unexpected error!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void PictureBoxBack_Click(object sender, EventArgs e)
         {
             Hide();
             Terminal terminal = new Terminal();
             terminal.Show();
-        }
-
-        private void NewEmployee_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

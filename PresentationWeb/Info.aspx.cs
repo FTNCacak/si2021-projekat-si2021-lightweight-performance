@@ -10,12 +10,11 @@ using Shared.Interfaces;
 using Shared.Models;
 using System.Data.SqlClient;
 
-
 namespace PresentationWeb1
 {
     public partial class Info : System.Web.UI.Page
     {
-        private readonly MembershipBusiness business = new MembershipBusiness();
+        private readonly IMembershipBusiness membershipBusiness;
         public static int Sid = 0;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -24,7 +23,7 @@ namespace PresentationWeb1
             {
                 Response.Redirect("https://localhost:44363/Login");
             }
-            List<Membership> memberships = business.GetAllMemberships();
+            List<Membership> memberships = membershipBusiness.GetAllMemberships();
             
 
             foreach (Membership membership in memberships)

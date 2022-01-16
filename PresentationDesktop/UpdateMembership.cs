@@ -1,25 +1,16 @@
-﻿using DataLayer;
-using BusinessLayer;
-using Shared.Interfaces;
-using Shared.Models;
+﻿using Shared.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationDesktop
 {
     public partial class UpdateMembership : Form
     {
-        private readonly MembershipBusiness membershipBusiness = new MembershipBusiness();
+        private readonly IMembershipBusiness membershipBusiness;
 
-        //Corner manipulation
+        // zaobljavanje ivica prozora
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
@@ -31,7 +22,7 @@ namespace PresentationDesktop
             int nHeightEllipse // width of ellipse
         );
 
-        //Drag
+        // omogućava pomeranje prozora aplikacije
         protected override void WndProc(ref Message m)
         {
             switch (m.Msg)
@@ -48,6 +39,7 @@ namespace PresentationDesktop
 
         public UpdateMembership()
         {
+            membershipBusiness = (IMembershipBusiness)Program.ServiceProvider.GetService(typeof(IMembershipBusiness));
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 30, 30));
@@ -58,16 +50,21 @@ namespace PresentationDesktop
             textBoxMemberID.Focus();
         }
 
-        private void btnConfirm_Click(object sender, EventArgs e)
+        private void BtnConfirm_Click(object sender, EventArgs e)
         {
             try
             {
+                // ažurira članstvo za člana sa unesenim ID brojem za unet broj meseci
                 if (membershipBusiness.UpdateMembership(membershipBusiness.GetMembershipByID(Convert.ToInt32(textBoxMemberID.Text)), Convert.ToInt32(textBoxMonths.Text)))
                 {
                     if (Convert.ToInt32(textBoxMonths.Text) == 1)
-                        MessageBox.Show("Cost for 1 month of membership: 2500", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Cost for 1 month of membership: 2500 din", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
-                        MessageBox.Show("Cost for " + textBoxMonths.Text + " months of membership: " + Convert.ToInt32(textBoxMonths.Text) * 2500, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Cost for " + textBoxMonths.Text + " months of membership: " + Convert.ToInt32(textBoxMonths.Text) * 2500 + " din", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Unexpected error!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch
@@ -76,7 +73,7 @@ namespace PresentationDesktop
             }
         }
 
-        private void pictureBoxBack_Click(object sender, EventArgs e)
+        private void PictureBoxBack_Click(object sender, EventArgs e)
         {
             Hide();
             Terminal terminal = new Terminal();

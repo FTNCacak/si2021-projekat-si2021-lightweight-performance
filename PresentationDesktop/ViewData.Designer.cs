@@ -1,6 +1,6 @@
 ﻿namespace PresentationDesktop
 {
-    partial class MembershipInfo
+    partial class ViewData
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MembershipInfo));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewData));
             this.buttonSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
@@ -38,7 +38,7 @@
             this.pictureBoxBack = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBoxActive = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
             this.panel1.SuspendLayout();
@@ -55,7 +55,7 @@
             this.buttonSearch.TabIndex = 0;
             this.buttonSearch.Text = "🔎";
             this.buttonSearch.UseVisualStyleBackColor = false;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            this.buttonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
             // 
             // label1
             // 
@@ -101,6 +101,7 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Size = new System.Drawing.Size(752, 415);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellDoubleClick);
             // 
             // buttonShow
             // 
@@ -114,7 +115,7 @@
             this.buttonShow.TabIndex = 4;
             this.buttonShow.Text = "Show employees";
             this.buttonShow.UseVisualStyleBackColor = false;
-            this.buttonShow.Click += new System.EventHandler(this.buttonShow_Click);
+            this.buttonShow.Click += new System.EventHandler(this.ButtonShow_Click);
             // 
             // pictureBoxBack
             // 
@@ -127,14 +128,14 @@
             this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxBack.TabIndex = 19;
             this.pictureBoxBack.TabStop = false;
-            this.pictureBoxBack.Click += new System.EventHandler(this.pictureBoxBack_Click);
+            this.pictureBoxBack.Click += new System.EventHandler(this.PictureBoxBack_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.panel1.BackgroundImage = global::PresentationDesktop.Properties.Resources.Background_Light;
             this.panel1.Controls.Add(this.checkBoxActive);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.labelTitle);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBoxBack);
             this.panel1.Controls.Add(this.buttonShow);
@@ -148,6 +149,8 @@
             // checkBoxActive
             // 
             this.checkBoxActive.AutoSize = true;
+            this.checkBoxActive.Checked = true;
+            this.checkBoxActive.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxActive.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
             this.checkBoxActive.FlatAppearance.BorderSize = 5;
             this.checkBoxActive.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
@@ -162,21 +165,21 @@
             this.checkBoxActive.TabIndex = 22;
             this.checkBoxActive.Text = "Show active memberships";
             this.checkBoxActive.UseVisualStyleBackColor = true;
-            this.checkBoxActive.CheckedChanged += new System.EventHandler(this.checkBoxActive_CheckedChanged);
+            this.checkBoxActive.CheckedChanged += new System.EventHandler(this.CheckBoxActive_CheckedChanged);
             // 
-            // label3
+            // labelTitle
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(211)))), ((int)(((byte)(234)))));
-            this.label3.Location = new System.Drawing.Point(86, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 19);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Search user info";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelTitle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(211)))), ((int)(((byte)(234)))));
+            this.labelTitle.Location = new System.Drawing.Point(61, 16);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(185, 19);
+            this.labelTitle.TabIndex = 20;
+            this.labelTitle.Text = "Membership Database";
+            this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MembershipInfo
             // 
@@ -212,7 +215,7 @@
         private System.Windows.Forms.Button buttonShow;
         private System.Windows.Forms.PictureBox pictureBoxBack;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.CheckBox checkBoxActive;
     }
 }

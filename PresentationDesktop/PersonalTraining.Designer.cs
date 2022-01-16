@@ -32,12 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxMemberID = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Appointment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonConfirm = new System.Windows.Forms.Button();
             this.dtpTraining = new System.Windows.Forms.DateTimePicker();
             this.textBoxPlan = new System.Windows.Forms.TextBox();
@@ -83,60 +77,11 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(89)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Appointment,
-            this.FirstName,
-            this.LastName,
-            this.FirstName1,
-            this.LastName1,
-            this.Type});
             this.dataGridView1.Location = new System.Drawing.Point(454, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(654, 347);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // Appointment
-            // 
-            this.Appointment.DataPropertyName = "Appointment";
-            this.Appointment.HeaderText = "Appointment";
-            this.Appointment.Name = "Appointment";
-            this.Appointment.ReadOnly = true;
-            // 
-            // FirstName
-            // 
-            this.FirstName.DataPropertyName = "FirstName";
-            this.FirstName.HeaderText = "Member First Name";
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            // 
-            // LastName
-            // 
-            this.LastName.DataPropertyName = "LastName";
-            this.LastName.HeaderText = "Member Last Name";
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            // 
-            // FirstName1
-            // 
-            this.FirstName1.DataPropertyName = "FirstName1";
-            this.FirstName1.HeaderText = "Trainer First Name";
-            this.FirstName1.Name = "FirstName1";
-            this.FirstName1.ReadOnly = true;
-            // 
-            // LastName1
-            // 
-            this.LastName1.DataPropertyName = "LastName1";
-            this.LastName1.HeaderText = "Trainer Last Name";
-            this.LastName1.Name = "LastName1";
-            this.LastName1.ReadOnly = true;
-            // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "Training Type";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
             // 
             // buttonConfirm
             // 
@@ -150,7 +95,7 @@
             this.buttonConfirm.TabIndex = 4;
             this.buttonConfirm.Text = "Add Personal Training";
             this.buttonConfirm.UseVisualStyleBackColor = false;
-            this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
+            this.buttonConfirm.Click += new System.EventHandler(this.ButtonConfirm_Click);
             // 
             // dtpTraining
             // 
@@ -266,7 +211,7 @@
             this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxBack.TabIndex = 21;
             this.pictureBoxBack.TabStop = false;
-            this.pictureBoxBack.Click += new System.EventHandler(this.pictureBoxBack_Click);
+            this.pictureBoxBack.Click += new System.EventHandler(this.PictureBoxBack_Click);
             // 
             // label4
             // 
@@ -277,9 +222,9 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(211)))), ((int)(((byte)(234)))));
             this.label4.Location = new System.Drawing.Point(25, 15);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(177, 19);
+            this.label4.Size = new System.Drawing.Size(150, 19);
             this.label4.TabIndex = 21;
-            this.label4.Text = "Edit Personal Tranings ";
+            this.label4.Text = "Personal Trainings ";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PersonalTraining
@@ -323,11 +268,5 @@
         private System.Windows.Forms.PictureBox pictureBoxBack;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBoxTrainer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Appointment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastName1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
     }
 }

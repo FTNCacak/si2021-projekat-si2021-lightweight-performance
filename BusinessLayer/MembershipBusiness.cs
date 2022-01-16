@@ -1,17 +1,18 @@
-﻿using DataLayer;
-using Shared.Interfaces;
+﻿using Shared.Interfaces;
 using Shared.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
     public class MembershipBusiness : IMembershipBusiness
     {
-        readonly MembershipRepository membershipRepository = new MembershipRepository();
+        private readonly IMembershipRepository membershipRepository;
+
+        public MembershipBusiness(IMembershipRepository membershipRepository)
+        {
+            this.membershipRepository = membershipRepository;
+        }
 
         public List<Membership> SearchMembership(string firstName, string lastName)
         {
@@ -20,7 +21,7 @@ namespace BusinessLayer
 
         public Membership GetMembershipByID(int id)
         {
-            List<Membership> list =  GetAllMemberships().Where(member => member.MembershipID == id).ToList();
+            List<Membership> list = GetAllMemberships().Where(member => member.MembershipID == id).ToList();
             return list.First();
         }
 
@@ -37,6 +38,11 @@ namespace BusinessLayer
         public bool UpdateMembership(Membership membership, int number)
         {
             return membershipRepository.UpdateMembership(membership, number) != 0;
+        }
+
+        public bool UpdateMembershipDetails(Membership membership)
+        {
+            return membershipRepository.UpdateMembershipDetails(membership) != 0;
         }
     }
 }

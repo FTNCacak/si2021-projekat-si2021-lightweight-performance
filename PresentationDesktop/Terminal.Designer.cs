@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Terminal));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.CheckinDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MembershipID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExpirationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,8 +39,7 @@
             this.btnMembership = new System.Windows.Forms.Button();
             this.btnMemberInfo = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.buttonFilter = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.labelDate = new System.Windows.Forms.Label();
             this.txtUserID = new System.Windows.Forms.TextBox();
             this.btnCheckIn = new System.Windows.Forms.Button();
@@ -47,11 +47,10 @@
             this.btnPersonalTraining = new System.Windows.Forms.Button();
             this.pictureBoxExit = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.btnEmployee = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.WelcomeText = new System.Windows.Forms.Label();
+            this.pictureBoxNewEmployee = new System.Windows.Forms.PictureBox();
+            this.btnNewEmployee = new System.Windows.Forms.Button();
+            this.labelUser = new System.Windows.Forms.Label();
+            this.labelTitle = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -61,7 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNewEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -77,6 +76,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CheckinDate,
+            this.MembershipID,
             this.FirstName,
             this.LastName,
             this.ExpirationDate});
@@ -92,6 +92,13 @@
             this.CheckinDate.HeaderText = "Checkin Date";
             this.CheckinDate.Name = "CheckinDate";
             this.CheckinDate.ReadOnly = true;
+            // 
+            // MembershipID
+            // 
+            this.MembershipID.DataPropertyName = "MembershipID";
+            this.MembershipID.HeaderText = "ID";
+            this.MembershipID.Name = "MembershipID";
+            this.MembershipID.ReadOnly = true;
             // 
             // FirstName
             // 
@@ -128,7 +135,7 @@
             this.btnNewMember.TabIndex = 0;
             this.btnNewMember.Text = "New Member";
             this.btnNewMember.UseVisualStyleBackColor = false;
-            this.btnNewMember.Click += new System.EventHandler(this.btnNewMember_Click);
+            this.btnNewMember.Click += new System.EventHandler(this.BtnNewMember_Click);
             // 
             // btnMembership
             // 
@@ -143,7 +150,7 @@
             this.btnMembership.TabIndex = 1;
             this.btnMembership.Text = "Membership";
             this.btnMembership.UseVisualStyleBackColor = false;
-            this.btnMembership.Click += new System.EventHandler(this.btnMembership_Click);
+            this.btnMembership.Click += new System.EventHandler(this.BtnMembership_Click);
             // 
             // btnMemberInfo
             // 
@@ -160,14 +167,13 @@
             this.btnMemberInfo.TabIndex = 3;
             this.btnMemberInfo.Text = "Member Info";
             this.btnMemberInfo.UseVisualStyleBackColor = false;
-            this.btnMemberInfo.Click += new System.EventHandler(this.btnMemberInfo_Click);
+            this.btnMemberInfo.Click += new System.EventHandler(this.BtnMemberInfo_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
             this.panel1.BackgroundImage = global::PresentationDesktop.Properties.Resources.Background_Light;
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.buttonFilter);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.labelDate);
             this.panel1.Controls.Add(this.txtUserID);
             this.panel1.Controls.Add(this.btnCheckIn);
@@ -176,29 +182,17 @@
             this.panel1.Size = new System.Drawing.Size(462, 128);
             this.panel1.TabIndex = 2;
             // 
-            // dateTimePicker1
+            // label1
             // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Location = new System.Drawing.Point(264, 29);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(184, 20);
-            this.dateTimePicker1.TabIndex = 13;
-            // 
-            // buttonFilter
-            // 
-            this.buttonFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(51)))));
-            this.buttonFilter.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(51)))));
-            this.buttonFilter.FlatAppearance.BorderSize = 0;
-            this.buttonFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonFilter.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.buttonFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.buttonFilter.Location = new System.Drawing.Point(263, 55);
-            this.buttonFilter.Name = "buttonFilter";
-            this.buttonFilter.Size = new System.Drawing.Size(185, 66);
-            this.buttonFilter.TabIndex = 12;
-            this.buttonFilter.Text = "Filter By Date";
-            this.buttonFilter.UseVisualStyleBackColor = false;
-            this.buttonFilter.Click += new System.EventHandler(this.buttonFilter_Click);
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
+            this.label1.Location = new System.Drawing.Point(118, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 19);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Enter member ID:";
             // 
             // labelDate
             // 
@@ -214,15 +208,14 @@
             this.txtUserID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUserID.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserID.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtUserID.Location = new System.Drawing.Point(19, 14);
+            this.txtUserID.Location = new System.Drawing.Point(122, 27);
             this.txtUserID.MaxLength = 9;
-            this.txtUserID.Multiline = true;
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtUserID.Size = new System.Drawing.Size(238, 35);
+            this.txtUserID.Size = new System.Drawing.Size(238, 22);
             this.txtUserID.TabIndex = 9;
             this.txtUserID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtUserID.TextChanged += new System.EventHandler(this.txtUserID_TextChanged);
+            this.txtUserID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtUserID_KeyDown);
             // 
             // btnCheckIn
             // 
@@ -232,13 +225,13 @@
             this.btnCheckIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheckIn.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheckIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.btnCheckIn.Location = new System.Drawing.Point(19, 55);
+            this.btnCheckIn.Location = new System.Drawing.Point(122, 55);
             this.btnCheckIn.Name = "btnCheckIn";
             this.btnCheckIn.Size = new System.Drawing.Size(238, 66);
             this.btnCheckIn.TabIndex = 7;
-            this.btnCheckIn.Text = "Check-In";
+            this.btnCheckIn.Text = "Check In";
             this.btnCheckIn.UseVisualStyleBackColor = false;
-            this.btnCheckIn.Click += new System.EventHandler(this.btnCheckIn_Click);
+            this.btnCheckIn.Click += new System.EventHandler(this.BtnCheckIn_Click);
             // 
             // pictureBox2
             // 
@@ -263,9 +256,9 @@
             this.btnPersonalTraining.Name = "btnPersonalTraining";
             this.btnPersonalTraining.Size = new System.Drawing.Size(135, 65);
             this.btnPersonalTraining.TabIndex = 2;
-            this.btnPersonalTraining.Text = "Personal training";
+            this.btnPersonalTraining.Text = "Personal Training";
             this.btnPersonalTraining.UseVisualStyleBackColor = false;
-            this.btnPersonalTraining.Click += new System.EventHandler(this.btnPersonalTraining_Click);
+            this.btnPersonalTraining.Click += new System.EventHandler(this.BtnPersonalTraining_Click);
             // 
             // pictureBoxExit
             // 
@@ -278,18 +271,17 @@
             this.pictureBoxExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxExit.TabIndex = 6;
             this.pictureBoxExit.TabStop = false;
-            this.pictureBoxExit.Click += new System.EventHandler(this.pictureBoxExit_Click);
+            this.pictureBoxExit.Click += new System.EventHandler(this.PictureBoxExit_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
             this.panel2.BackgroundImage = global::PresentationDesktop.Properties.Resources.Background_Light;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Controls.Add(this.pictureBox7);
-            this.panel2.Controls.Add(this.btnEmployee);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.WelcomeText);
+            this.panel2.Controls.Add(this.pictureBoxNewEmployee);
+            this.panel2.Controls.Add(this.btnNewEmployee);
+            this.panel2.Controls.Add(this.labelUser);
+            this.panel2.Controls.Add(this.labelTitle);
             this.panel2.Controls.Add(this.pictureBox6);
             this.panel2.Controls.Add(this.pictureBoxExit);
             this.panel2.Controls.Add(this.pictureBox5);
@@ -305,66 +297,55 @@
             this.panel2.Size = new System.Drawing.Size(234, 701);
             this.panel2.TabIndex = 3;
             // 
-            // pictureBox7
+            // pictureBoxNewEmployee
             // 
-            this.pictureBox7.Image = global::PresentationDesktop.Properties.Resources.NewEmployee;
-            this.pictureBox7.Location = new System.Drawing.Point(18, 569);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(65, 65);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 15;
-            this.pictureBox7.TabStop = false;
+            this.pictureBoxNewEmployee.Image = global::PresentationDesktop.Properties.Resources.NewEmployee;
+            this.pictureBoxNewEmployee.Location = new System.Drawing.Point(18, 569);
+            this.pictureBoxNewEmployee.Name = "pictureBoxNewEmployee";
+            this.pictureBoxNewEmployee.Size = new System.Drawing.Size(65, 65);
+            this.pictureBoxNewEmployee.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxNewEmployee.TabIndex = 15;
+            this.pictureBoxNewEmployee.TabStop = false;
             // 
-            // btnEmployee
+            // btnNewEmployee
             // 
-            this.btnEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(51)))));
-            this.btnEmployee.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(51)))));
-            this.btnEmployee.FlatAppearance.BorderSize = 0;
-            this.btnEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmployee.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btnEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.btnEmployee.Location = new System.Drawing.Point(82, 569);
-            this.btnEmployee.Name = "btnEmployee";
-            this.btnEmployee.Size = new System.Drawing.Size(135, 65);
-            this.btnEmployee.TabIndex = 14;
-            this.btnEmployee.Text = "New Employee";
-            this.btnEmployee.UseVisualStyleBackColor = false;
+            this.btnNewEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(51)))));
+            this.btnNewEmployee.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(51)))));
+            this.btnNewEmployee.FlatAppearance.BorderSize = 0;
+            this.btnNewEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewEmployee.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnNewEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
+            this.btnNewEmployee.Location = new System.Drawing.Point(82, 569);
+            this.btnNewEmployee.Name = "btnNewEmployee";
+            this.btnNewEmployee.Size = new System.Drawing.Size(135, 65);
+            this.btnNewEmployee.TabIndex = 14;
+            this.btnNewEmployee.Text = "New Employee";
+            this.btnNewEmployee.UseVisualStyleBackColor = false;
+            this.btnNewEmployee.Click += new System.EventHandler(this.BtnNewEmployee_Click);
             // 
-            // label2
+            // labelUser
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.label2.Location = new System.Drawing.Point(112, 251);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 19);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "_________";
+            this.labelUser.AutoSize = true;
+            this.labelUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelUser.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
+            this.labelUser.Location = new System.Drawing.Point(20, 253);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(118, 19);
+            this.labelUser.TabIndex = 13;
+            this.labelUser.Text = "Logged in as: ";
             // 
-            // label1
+            // labelTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.label1.Location = new System.Drawing.Point(30, 251);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 19);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Welcome:";
-            // 
-            // WelcomeText
-            // 
-            this.WelcomeText.AutoSize = true;
-            this.WelcomeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.WelcomeText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WelcomeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
-            this.WelcomeText.Location = new System.Drawing.Point(20, 211);
-            this.WelcomeText.Name = "WelcomeText";
-            this.WelcomeText.Size = new System.Drawing.Size(201, 19);
-            this.WelcomeText.TabIndex = 11;
-            this.WelcomeText.Text = "Lightweight Performance\r\n";
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelTitle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(161)))), ((int)(((byte)(186)))));
+            this.labelTitle.Location = new System.Drawing.Point(20, 211);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(201, 19);
+            this.labelTitle.TabIndex = 11;
+            this.labelTitle.Text = "Lightweight Performance\r\n";
             // 
             // pictureBox6
             // 
@@ -431,7 +412,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNewEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -458,17 +439,16 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Button buttonFilter;
-        private System.Windows.Forms.Label WelcomeText;
+        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Label labelUser;
+        private System.Windows.Forms.PictureBox pictureBoxNewEmployee;
+        private System.Windows.Forms.Button btnNewEmployee;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckinDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MembershipID;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExpirationDate;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Button btnEmployee;
     }
 }
 

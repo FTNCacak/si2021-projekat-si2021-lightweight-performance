@@ -100,7 +100,7 @@
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // lblError
             // 
@@ -148,7 +148,7 @@
             this.pictureBoxExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxExit.TabIndex = 8;
             this.pictureBoxExit.TabStop = false;
-            this.pictureBoxExit.Click += new System.EventHandler(this.pictureBoxExit_Click);
+            this.pictureBoxExit.Click += new System.EventHandler(this.PictureBoxExit_Click);
             // 
             // Login
             // 

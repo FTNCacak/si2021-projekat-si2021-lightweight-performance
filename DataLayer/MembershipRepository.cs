@@ -1,11 +1,7 @@
 ﻿using Shared.Interfaces;
 using Shared.Models;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataLayer
 {
@@ -90,17 +86,21 @@ namespace DataLayer
             }
         }
 
-        public int DeleteMembership(int MembershipID)
+        public int UpdateMembershipDetails(Membership membership)
         {
             using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
             {
                 sqlConnection.Open();
 
-                SqlCommand command = new SqlCommand
-                {
-                    Connection = sqlConnection,
-                    CommandText = string.Format("DELETE FROM Memberships WHERE MembershipID = {0}", MembershipID)
-                };
+                string sqlQuery = "UPDATE Memberships SET FirstName = @FirstName, LastName = @LastName, Address = @Address, PhoneNumber = @PhoneNumber, Note = @Note WHERE MembershipID = @MembershipID";
+
+                SqlCommand command = new SqlCommand(sqlQuery, sqlConnection);
+                command.Parameters.AddWithValue("@MembershipID", membership.MembershipID);
+                command.Parameters.AddWithValue("@FirstName", membership.FirstName);
+                command.Parameters.AddWithValue("@LastName", membership.LastName);
+                command.Parameters.AddWithValue("@Address", membership.Address);
+                command.Parameters.AddWithValue("@PhoneNumber", membership.PhoneNumber);
+                command.Parameters.AddWithValue("@Note", membership.Note);
 
                 return command.ExecuteNonQuery();
             }

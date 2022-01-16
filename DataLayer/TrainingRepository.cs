@@ -1,11 +1,7 @@
 ﻿using Shared.Interfaces;
 using Shared.Models;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataLayer
 {
@@ -54,41 +50,6 @@ namespace DataLayer
                 command.Parameters.AddWithValue("@MembershipID", training.MembershipID);
                 command.Parameters.AddWithValue("@EmployeeID", training.EmployeeID);
                 command.Parameters.AddWithValue("@Type", training.Type);
-
-                return command.ExecuteNonQuery();
-            }
-        }
-
-        //izmeniti metodu ako se bude koristila
-        public int UpdateTraining(Training training)
-        {
-            using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
-            {
-                sqlConnection.Open();
-
-                string sqlQuery = "UPDATE Trainings SET Appointment = @Appointment, CardNumber = @CardNumber, PersonalNumber = @PersonalNmber, Type = @Type";
-
-                SqlCommand command = new SqlCommand(sqlQuery, sqlConnection);
-                command.Parameters.AddWithValue("@PersonalNumber", training.Appointment);
-                command.Parameters.AddWithValue("@FirstName", training.MembershipID);
-                command.Parameters.AddWithValue("@LastName", training.EmployeeID);
-                command.Parameters.AddWithValue("@EmploymentDate", training.Type);
-
-                return command.ExecuteNonQuery();
-            }
-        }
-
-        public int DeleteTraining(DateTime Appointment, int MembershipID, int EmployeeID)
-        {
-            using (SqlConnection sqlConnection = new SqlConnection(Constants.connString))
-            {
-                sqlConnection.Open();
-
-                SqlCommand command = new SqlCommand
-                {
-                    Connection = sqlConnection,
-                    CommandText = string.Format("DELETE FROM Trainings WHERE Appointment = {0}, MembershipID = {1}, EmployeeID = {2}", Appointment, MembershipID, EmployeeID)
-                };
 
                 return command.ExecuteNonQuery();
             }
