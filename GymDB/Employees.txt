@@ -1,0 +1,18 @@
+CREATE TABLE [dbo].[Employees] (
+    [EmployeeID]         INT           IDENTITY (1, 1) NOT NULL,
+    [PersonalNumber]     NVARCHAR (13) NOT NULL,
+    [FirstName]          NVARCHAR (20) NOT NULL,
+    [LastName]           NVARCHAR (20) NOT NULL,
+    [EmploymentDate]     DATE          NOT NULL,
+    [ContractExpiration] DATE          NOT NULL,
+    [Address]            NVARCHAR (50) NOT NULL,
+    [PhoneNumber]        NVARCHAR (10) NOT NULL,
+    [BirthDate]          DATE          NOT NULL,
+    PRIMARY KEY CLUSTERED ([EmployeeID] ASC)
+);
+
+SET IDENTITY_INSERT [dbo].[Employees] ON
+INSERT INTO [dbo].[Employees] ([EmployeeID], [PersonalNumber], [FirstName], [LastName], [EmploymentDate], [ContractExpiration], [Address], [PhoneNumber], [BirthDate]) VALUES (1, N'1502956782811', N'Jovan', N'Toljic', N'1996-01-01', N'2050-01-01', N'Svetog Save 11-13', N'063992661', N'1956-02-15')
+INSERT INTO [dbo].[Employees] ([EmployeeID], [PersonalNumber], [FirstName], [LastName], [EmploymentDate], [ContractExpiration], [Address], [PhoneNumber], [BirthDate]) VALUES (2, N'2512000781855', N'Dalibor', N'Tosic', N'2022-01-01', N'2023-01-01', N'Balkanska 11', N'0611399758', N'2000-12-25')
+INSERT INTO [dbo].[Employees] ([EmployeeID], [PersonalNumber], [FirstName], [LastName], [EmploymentDate], [ContractExpiration], [Address], [PhoneNumber], [BirthDate]) VALUES (3, N'1111000787846', N'Ksenija', N'Ristic', N'2020-01-01', N'2030-01-01', N'Gradsko setaliste bb', N'0661522331', N'2000-11-11')
+SET IDENTITY_INSERT [dbo].[Employees] OFF
