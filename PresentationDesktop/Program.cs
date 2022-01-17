@@ -32,7 +32,7 @@ namespace PresentationDesktop
             Application.SetCompatibleTextRenderingDefault(false);
 
             ConfigureServices();
-            Application.Run(new Terminal());
+            Application.Run(new Login());
         }
     }
 }
